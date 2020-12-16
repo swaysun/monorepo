@@ -6,10 +6,11 @@
   "author": "liufeng <lfeng18@grgbanking.com>",
   "license": "MIT",
   "private": true,
-  "npmClient": "yarn",
-  "useWorkspaces": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "initl": "lerna init"
+    "clean": "yarn workspaces run clean"
   },
   "devDependencies": {
     "lerna": "^3.22.1"
