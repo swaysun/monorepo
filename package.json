@@ -1,0 +1,17 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/swaysun/monorepo.git",
+  "author": "liufeng <lfeng18@grgbanking.com>",
+  "license": "MIT",
+  "private": true,
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "scripts": {
+    "initl": "lerna init"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}

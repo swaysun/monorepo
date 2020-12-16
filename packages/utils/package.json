@@ -1,0 +1,32 @@
+{
+  "name": "@grg/utils",
+  "version": "0.0.0",
+  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "keywords": [],
+  "author": "liufeng <lfeng18@grgbanking.com>",
+  "license": "ISC",
+  "main": "src/index.js",
+  "directories": {
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npm.taobao.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swaysun/monorepo.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/swaysun/monorepo/issues"
+  },
+  "homepage": "https://github.com/swaysun/monorepo#readme",
+  "dependencies": {
+    "rollup": "^2.35.1"
+  }
+}
