@@ -26,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/swaysun/monorepo/issues"
   },
-  "homepage": "https://github.com/swaysun/monorepo#readme"
+  "homepage": "https://github.com/swaysun/monorepo#readme",
+  "gitHead": "48626bb6b8b6e0f70775990ef7db649dd61118e0"
 }
