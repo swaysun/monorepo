@@ -6,4 +6,5 @@ function utils() {
     // TODO
 
     console.log(111)
+    console.error(111)
 }
