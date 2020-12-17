@@ -3,86 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.7.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.6.0...@grg/utils@0.7.0) (2020-12-17)
+# [0.8.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.7.0...@grg/utils@0.8.0) (2020-12-17)
 
+### Features
+
+- **all:** brand new ver ([560d971](https://github.com/swaysun/monorepo/commit/560d9714fa8865089ef5c1a5289ca1d3c6f7b36b))
+
+# [0.7.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.6.0...@grg/utils@0.7.0) (2020-12-17)
 
 ### Bug Fixes
 
-* change log message ([895966b](https://github.com/swaysun/monorepo/commit/895966b2703dd5fcee2714efa6ec5a2a174d031f))
-
+- change log message ([895966b](https://github.com/swaysun/monorepo/commit/895966b2703dd5fcee2714efa6ec5a2a174d031f))
 
 ### Features
 
-* glon function ([a8a8d11](https://github.com/swaysun/monorepo/commit/a8a8d1177f5e76c5a06541ea29f84d5da0bd3776))
-
-
-
-
+- glon function ([a8a8d11](https://github.com/swaysun/monorepo/commit/a8a8d1177f5e76c5a06541ea29f84d5da0bd3776))
 
 # [0.6.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.5.0...@grg/utils@0.6.0) (2020-12-17)
 
-
 ### Features
 
-* publish -0-0-0 ([05a1c7a](https://github.com/swaysun/monorepo/commit/05a1c7a7a7229a58fa13cf458c0a99ca3f1f3560))
-
-
-
-
+- publish -0-0-0 ([05a1c7a](https://github.com/swaysun/monorepo/commit/05a1c7a7a7229a58fa13cf458c0a99ca3f1f3560))
 
 # [0.5.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.4.0...@grg/utils@0.5.0) (2020-12-17)
 
-
 ### Features
 
-* new log ([da4cd93](https://github.com/swaysun/monorepo/commit/da4cd93e677857294fd713312b1e0b260b0e0088))
-
-
-
-
+- new log ([da4cd93](https://github.com/swaysun/monorepo/commit/da4cd93e677857294fd713312b1e0b260b0e0088))
 
 # [0.4.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.0.11...@grg/utils@0.4.0) (2020-12-17)
 
-
 ### Features
 
-* heeelop ([30d1559](https://github.com/swaysun/monorepo/commit/30d155992bd7e68deb05fb8e3e5329837b53280e))
-* **component:** fsafas ([b482e80](https://github.com/swaysun/monorepo/commit/b482e8002266fde00a91715d227c75580a53f822))
-
-
-
-
+- heeelop ([30d1559](https://github.com/swaysun/monorepo/commit/30d155992bd7e68deb05fb8e3e5329837b53280e))
+- **component:** fsafas ([b482e80](https://github.com/swaysun/monorepo/commit/b482e8002266fde00a91715d227c75580a53f822))
 
 # [0.3.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.0.11...@grg/utils@0.3.0) (2020-12-17)
 
-
 ### Features
 
-* heeelop ([30d1559](https://github.com/swaysun/monorepo/commit/30d155992bd7e68deb05fb8e3e5329837b53280e))
-* **component:** fsafas ([b482e80](https://github.com/swaysun/monorepo/commit/b482e8002266fde00a91715d227c75580a53f822))
-
-
-
-
+- heeelop ([30d1559](https://github.com/swaysun/monorepo/commit/30d155992bd7e68deb05fb8e3e5329837b53280e))
+- **component:** fsafas ([b482e80](https://github.com/swaysun/monorepo/commit/b482e8002266fde00a91715d227c75580a53f822))
 
 # [0.1.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.0.11...@grg/utils@0.1.0) (2020-12-17)
 
-
 ### Features
 
-* **component:** fsafas ([b482e80](https://github.com/swaysun/monorepo/commit/b482e8002266fde00a91715d227c75580a53f822))
-
-
-
-
+- **component:** fsafas ([b482e80](https://github.com/swaysun/monorepo/commit/b482e8002266fde00a91715d227c75580a53f822))
 
 ## [0.0.7](https://github.com/swaysun/monorepo/compare/@grg/utils@0.0.6...@grg/utils@0.0.7) (2020-12-17)
 
 **Note:** Version bump only for package @grg/utils
-
-
-
-
 
 ## [0.0.5](https://github.com/swaysun/monorepo/compare/@grg/utils@0.0.4...@grg/utils@0.0.5) (2020-12-16)
 
