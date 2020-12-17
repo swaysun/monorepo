@@ -12,9 +12,6 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/swaysun/monorepo.git"
@@ -29,5 +26,5 @@
   "dependencies": {
     "rollup": "^2.35.1"
   },
-  "gitHead": "9e35a5e35524e786722ae4d08faf61782a0f3613"
+  "gitHead": "a07af5ac155b8d876f2ba01917dbe1184368690a"
 }
