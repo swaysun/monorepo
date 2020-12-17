@@ -12,7 +12,9 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "src",
+    "dist/*.js",
+    "types/*.d.ts"
   ],
   "repository": {
     "type": "git",
