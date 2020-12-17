@@ -11,9 +11,9 @@
   ],
   "scripts": {
     "clean": "yarn workspaces run clean",
-    "commit": "git-cz",
-    "bump-version": "lerna version --conventional-commits",
-    "publish": "lerna publish from-git"
+    "cm": "git-cz",
+    "bv": "lerna version --conventional-commits",
+    "pu": "lerna publish from-git"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
