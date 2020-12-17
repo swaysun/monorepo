@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2](https://github.com/swaysun/monorepo/compare/@grg/utils@0.9.1...@grg/utils@0.9.2) (2020-12-17)
+
+### Bug Fixes
+
+- ff ([ed005a6](https://github.com/swaysun/monorepo/commit/ed005a68ce898a4ef19a330b1d2007099a9ead2c))
+
 ## [0.9.1](https://github.com/swaysun/monorepo/compare/@grg/utils@0.9.0...@grg/utils@0.9.1) (2020-12-17)
 
 ### Bug Fixes
