@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 const chalk = require('chalk');
 console.log(
     chalk.red(`commit格式错误，正确示例：git commit -m 'fix: 修复bug'`),
