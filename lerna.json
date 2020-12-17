@@ -5,7 +5,7 @@
   "useWorkspaces": true,
   "command": {
     "publish": {
-      "registry": "http://10.1.7.66:8081/repository/npm-group/"
+      "registry": "http://10.1.7.66:8081/repository/npm-hosted/"
     }
   }
 }
