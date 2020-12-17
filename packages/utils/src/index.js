@@ -6,7 +6,6 @@ function glon(){
     console.log('glon')
 }
 function utils() {
-    // TODO
     glon();
     console.log("111fdfdsf")
     console.log(111)
