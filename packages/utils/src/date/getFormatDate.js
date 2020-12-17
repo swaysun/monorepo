@@ -4,7 +4,7 @@
  * @param {*} type 可以返回只有年月日 或年月日时分秒
  */
 
-export default function getFormatDate(date1, type) {
+export function getFormatDate(date1, type) {
   let date = new Date(date1);
   var bool = true;
   let y = date.getFullYear();

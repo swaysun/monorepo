@@ -5,8 +5,9 @@
   "keywords": [],
   "author": "liufeng <lfeng18@grgbanking.com>",
   "license": "ISC",
-  "main": "src/index.js",
+  "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
   "directories": {
     "test": "__tests__"
   },

@@ -1,11 +1,4 @@
-import getTimeLong from "./date/getTimeLong";
-import getFormatDate from "./date/getFormatDate";
-import isEmail from "./validation/isEmail";
-import isDeviceIp from "./validation/isDeviceIp";
-
-export default {
-  getTimeLong,
-  getFormatDate,
-  isEmail,
-  isDeviceIp,
-};
+export { getTimeLong } from "./date/getTimeLong";
+export { getFormatDate } from "./date/getFormatDate";
+export { isEmail } from "./validation/isEmail";
+export { isDeviceIp } from "./validation/isDeviceIp";

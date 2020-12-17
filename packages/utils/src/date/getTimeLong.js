@@ -2,7 +2,7 @@
  * 时间戳转时间长度
  * @param {*} times 传入的为秒
  */
-export default function getTimeLong(times) {
+export function getTimeLong(times) {
   let dayDiff = Math.floor(times / (24 * 3600));
   let leave1 = times % (24 * 3600);
   let hours = Math.floor(leave1 / 3600);
