@@ -1,29 +1,11 @@
-'use strict';
+import getTimeLong from "./date/getTimeLong";
+import getFormatDate from "./date/getFormatDate";
+import isEmail from "./validation/isEmail";
+import isDeviceIp from "./validation/isDeviceIp";
 
-// eslint-disable-next-line no-undef
-module.exports = utils;
-function glon(){
-    console.log('glon')
-}
-function utils() {
-    glon();
-    console.log("111fdfdsf")
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-    console.error(111)
-    console.info(111)
-    console.log(111)
-    console.log(111)
-    console.log(111)
-}
+export default {
+  getTimeLong,
+  getFormatDate,
+  isEmail,
+  isDeviceIp,
+};

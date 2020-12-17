@@ -6,6 +6,7 @@
   "author": "liufeng <lfeng18@grgbanking.com>",
   "license": "ISC",
   "main": "src/index.js",
+  "module": "dist/index.esm.js",
   "directories": {
     "test": "__tests__"
   },
@@ -17,7 +18,8 @@
     "url": "git+https://github.com/swaysun/monorepo.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build:esm": "rollup -c"
   },
   "bugs": {
     "url": "https://github.com/swaysun/monorepo/issues"

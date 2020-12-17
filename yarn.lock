@@ -2327,6 +2327,11 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
+eslint-config-prettier@^7.0.0:
+  version "7.0.0"
+  resolved "http://10.1.7.66:8081/repository/npm-group/eslint-config-prettier/-/eslint-config-prettier-7.0.0.tgz#c1ae4106f74e6c0357f44adb076771d032ac0e97"
+  integrity sha1-wa5BBvdObANX9ErbB2dx0DKsDpc=
+
 eslint-scope@^5.1.1:
   version "5.1.1"
   resolved "http://10.1.7.66:8081/repository/npm-group/eslint-scope/-/eslint-scope-5.1.1.tgz#e786e59a66cb92b3f6c1fb0d508aab174848f48c"
