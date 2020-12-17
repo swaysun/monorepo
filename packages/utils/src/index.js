@@ -7,4 +7,5 @@ function utils() {
 
     console.log(111)
     console.error(111)
+    console.info(111)
 }
