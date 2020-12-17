@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.5.0...@grg/utils@0.6.0) (2020-12-17)
+
+
+### Features
+
+* publish -0-0-0 ([05a1c7a](https://github.com/swaysun/monorepo/commit/05a1c7a7a7229a58fa13cf458c0a99ca3f1f3560))
+
+
+
+
+
 # [0.5.0](https://github.com/swaysun/monorepo/compare/@grg/utils@0.4.0...@grg/utils@0.5.0) (2020-12-17)
 
 
