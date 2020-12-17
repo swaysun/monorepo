@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "yarn workspaces run clean",
     "commit": "git-cz",
-    "version": "lerna version --conventional-commits"
+    "bump-version": "lerna version --conventional-commits"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
