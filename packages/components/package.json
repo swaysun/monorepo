@@ -5,13 +5,16 @@
   "keywords": [],
   "author": "liufeng <lfeng18@grgbanking.com>",
   "license": "ISC",
-  "main": "lib/components.js",
+  "main": "lib/grg-components.common.js",
+  "unpkg": "lib/sinokit-components.common.js",
   "directories": {
+    "dist": "dist",
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "dist"
   ],
   "repository": {
     "type": "git",
