@@ -17,7 +17,7 @@ if (typeof window !== "undefined" && window.Vue) {
 }
 
 export default {
-  version: "0.6.1",
+  version: "0.7.0",
   install,
   BacktoTop,
   HelloWorld,

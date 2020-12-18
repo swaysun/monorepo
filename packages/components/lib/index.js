@@ -11,7 +11,7 @@
     var t = {
         2782: (t, e, r) => {
           "use strict";
-          r.d(e, { default: () => m }), r(8695), r(6936), r(1939);
+          r.d(e, { default: () => b }), r(8695), r(6936), r(1939);
           var n = function () {
             var t = this,
               e = t.$createElement,
@@ -89,8 +89,9 @@
               );
             },
             mounted: function () {
-              this.appendTo &&
-                (this.appendToEl = document.querySelector(this.appendTo)),
+              (window.__bt = this),
+                this.appendTo &&
+                  (this.appendToEl = document.querySelector(this.appendTo)),
                 this.appendToEl.addEventListener("scroll", this.handleScroll);
             },
             beforeDestroy: function () {
@@ -193,13 +194,32 @@
           const l = f;
           var p = function () {
             var t = this,
-              e = t.$createElement;
-            return (t._self._c || e)("h1", [
-              t._v("\n  " + t._s(t.$t("hello")) + "\n"),
+              e = t.$createElement,
+              r = t._self._c || e;
+            return r("div", [
+              r("h1", [t._v("\n    " + t._s(t.$t("hello")) + "\n  ")]),
+              t._v(" "),
+              r("h2", [t._v("\n    " + t._s(this.$t("hello")) + "\n  ")]),
             ]);
           };
           p._withStripped = !0;
-          var d = s({ name: "HelloWorld" }, p, [], !1, null, null, null);
+          var d = s(
+            {
+              name: "HelloWorld",
+              beforeCreate: function () {
+                console.log("beforeCreate", (window.__hw = this));
+              },
+              created: function () {
+                console.log(this);
+              },
+            },
+            p,
+            [],
+            !1,
+            null,
+            null,
+            null
+          );
           d.options.__file = "src/hello-world/src/hello-world.vue";
           const v = d.exports;
           v.install = function (t) {
@@ -213,8 +233,8 @@
               });
             };
           "undefined" != typeof window && window.Vue && g(window.Vue);
-          const m = {
-            version: "0.4.0",
+          const b = {
+            version: "0.7.0",
             install: g,
             BacktoTop: l,
             HelloWorld: h,
@@ -297,8 +317,8 @@
                 d = 5 == t || l;
               return function (v, h, y, g) {
                 for (
-                  var m,
-                    b,
+                  var b,
+                    m,
                     x = i(v),
                     S = o(x),
                     w = n(h, y, 3),
@@ -309,25 +329,25 @@
                   T > E;
                   E++
                 )
-                  if ((d || E in S) && ((b = w((m = S[E]), E, x)), t))
-                    if (e) _[E] = b;
-                    else if (b)
+                  if ((d || E in S) && ((m = w((b = S[E]), E, x)), t))
+                    if (e) _[E] = m;
+                    else if (m)
                       switch (t) {
                         case 3:
                           return !0;
                         case 5:
-                          return m;
+                          return b;
                         case 6:
                           return E;
                         case 2:
-                          s.call(_, m);
+                          s.call(_, b);
                       }
                     else
                       switch (t) {
                         case 4:
                           return !1;
                         case 7:
-                          s.call(_, m);
+                          s.call(_, b);
                       }
                 return l ? -1 : u || f ? f : _;
               };
@@ -690,9 +710,9 @@
             var h = l.state || (l.state = new v()),
               y = h.get,
               g = h.has,
-              m = h.set;
+              b = h.set;
             (n = function (t, e) {
-              return (e.facade = t), m.call(h, t, e), e;
+              return (e.facade = t), b.call(h, t, e), e;
             }),
               (o = function (t) {
                 return y.call(h, t) || {};
@@ -701,16 +721,16 @@
                 return g.call(h, t);
               });
           } else {
-            var b = p("state");
-            (d[b] = !0),
+            var m = p("state");
+            (d[m] = !0),
               (n = function (t, e) {
-                return (e.facade = t), u(t, b, e), e;
+                return (e.facade = t), u(t, m, e), e;
               }),
               (o = function (t) {
-                return f(t, b) ? t[b] : {};
+                return f(t, m) ? t[m] : {};
               }),
               (i = function (t) {
-                return f(t, b);
+                return f(t, m);
               });
           }
           t.exports = {
@@ -1198,9 +1218,9 @@
             h = r(1787).f,
             y = r(1017).trim,
             g = "Number",
-            m = o.Number,
-            b = m.prototype,
-            x = s(p(b)) == g,
+            b = o.Number,
+            m = b.prototype,
+            x = s(p(m)) == g,
             S = function (t) {
               var e,
                 r,
@@ -1233,7 +1253,7 @@
                 }
               return +u;
             };
-          if (i(g, !m(" 0o1") || !m("0b1") || m("+0x1"))) {
+          if (i(g, !b(" 0o1") || !b("0b1") || b("+0x1"))) {
             for (
               var w,
                 T = function (t) {
@@ -1242,14 +1262,14 @@
                   return r instanceof T &&
                     (x
                       ? l(function () {
-                          b.valueOf.call(r);
+                          m.valueOf.call(r);
                         })
                       : s(r) != g)
-                    ? u(new m(S(e)), r, T)
+                    ? u(new b(S(e)), r, T)
                     : S(e);
                 },
                 E = n
-                  ? d(m)
+                  ? d(b)
                   : "MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger,fromString,range".split(
                       ","
                     ),
@@ -1257,8 +1277,8 @@
               E.length > O;
               O++
             )
-              c(m, (w = E[O])) && !c(T, w) && h(T, w, v(m, w));
-            (T.prototype = b), (b.constructor = T), a(o, g, T);
+              c(b, (w = E[O])) && !c(T, w) && h(T, w, v(b, w));
+            (T.prototype = m), (m.constructor = T), a(o, g, T);
           }
         },
         1939: (t, e, r) => {

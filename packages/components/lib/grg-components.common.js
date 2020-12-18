@@ -146,6 +146,8 @@
             };
           },
           mounted: function mounted() {
+            window.__bt = this;
+
             if (this.appendTo) {
               this.appendToEl = document.querySelector(this.appendTo);
             }
@@ -357,7 +359,10 @@
           var _vm = this;
           var _h = _vm.$createElement;
           var _c = _vm._self._c || _h;
-          return _c("h1", [_vm._v("\n  " + _vm._s(_vm.$t("hello")) + "\n")]);
+          return _c("div", [
+            _c("h1", [_vm._v("\n    " + _vm._s(_vm.$t("hello")) + "\n  ")]),
+            _c("h2", [_vm._v("\n    " + _vm._s(this.$t("hello")) + "\n  ")]),
+          ]);
         };
         var hello_worldvue_type_template_id_7ae6ceaa_staticRenderFns = [];
         hello_worldvue_type_template_id_7ae6ceaa_render._withStripped = true; // CONCATENATED MODULE: ./src/hello-world/src/hello-world.vue?vue&type=template&id=7ae6ceaa& // CONCATENATED MODULE: ../../node_modules/babel-loader/lib/index.js!../../node_modules/vue-loader/lib/index.js??vue-loader-options!./src/hello-world/src/hello-world.vue?vue&type=script&lang=js&
@@ -368,8 +373,19 @@
         //
         //
         //
+        //
+        //
+        //
+        //
+        //
         /* harmony default export */ const hello_worldvue_type_script_lang_js_ = {
           name: "HelloWorld",
+          beforeCreate: function beforeCreate() {
+            console.log("beforeCreate", (window.__hw = this));
+          },
+          created: function created() {
+            console.log(this);
+          },
         }; // CONCATENATED MODULE: ./src/hello-world/src/hello-world.vue?vue&type=script&lang=js&
         /* harmony default export */ const src_hello_worldvue_type_script_lang_js_ = hello_worldvue_type_script_lang_js_; // CONCATENATED MODULE: ./src/hello-world/src/hello-world.vue
         /* normalize component */
@@ -414,7 +430,7 @@
         }
 
         /* harmony default export */ const src = {
-          version: "0.4.0",
+          version: "0.7.0",
           install: install,
           BacktoTop: src_backto_top,
           HelloWorld: src_hello_world,

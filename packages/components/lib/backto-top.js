@@ -146,6 +146,8 @@
             };
           },
           mounted: function mounted() {
+            window.__bt = this;
+
             if (this.appendTo) {
               this.appendToEl = document.querySelector(this.appendTo);
             }

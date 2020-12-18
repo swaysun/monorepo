@@ -30,7 +30,10 @@
           var _vm = this;
           var _h = _vm.$createElement;
           var _c = _vm._self._c || _h;
-          return _c("h1", [_vm._v("\n  " + _vm._s(_vm.$t("hello")) + "\n")]);
+          return _c("div", [
+            _c("h1", [_vm._v("\n    " + _vm._s(_vm.$t("hello")) + "\n  ")]),
+            _c("h2", [_vm._v("\n    " + _vm._s(this.$t("hello")) + "\n  ")]),
+          ]);
         };
         var staticRenderFns = [];
         render._withStripped = true; // CONCATENATED MODULE: ./src/hello-world/src/hello-world.vue?vue&type=template&id=7ae6ceaa& // CONCATENATED MODULE: ../../node_modules/babel-loader/lib/index.js!../../node_modules/vue-loader/lib/index.js??vue-loader-options!./src/hello-world/src/hello-world.vue?vue&type=script&lang=js&
@@ -41,8 +44,19 @@
         //
         //
         //
+        //
+        //
+        //
+        //
+        //
         /* harmony default export */ const hello_worldvue_type_script_lang_js_ = {
           name: "HelloWorld",
+          beforeCreate: function beforeCreate() {
+            console.log("beforeCreate", (window.__hw = this));
+          },
+          created: function created() {
+            console.log(this);
+          },
         }; // CONCATENATED MODULE: ./src/hello-world/src/hello-world.vue?vue&type=script&lang=js&
         /* harmony default export */ const src_hello_worldvue_type_script_lang_js_ = hello_worldvue_type_script_lang_js_; // CONCATENATED MODULE: ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js
         /* globals __VUE_SSR_CONTEXT__ */
