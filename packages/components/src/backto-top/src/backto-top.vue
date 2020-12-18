@@ -67,6 +67,7 @@ export default {
     };
   },
   mounted() {
+    window.__bt = this;
     if (this.appendTo) {
       this.appendToEl = document.querySelector(this.appendTo);
     }
