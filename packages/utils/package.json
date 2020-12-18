@@ -14,8 +14,7 @@
   },
   "files": [
     "src",
-    "dist/*.js",
-    "types/*.d.ts"
+    "dist"
   ],
   "sideEffects": false,
   "repository": {
