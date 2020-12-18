@@ -1,10 +1,12 @@
 <template>
-  <h1>
-    {{ $t("hello") }}
-  </h1>
-  <h2>
-    {{ this.$t("hello") }}
-  </h2>
+  <div>
+    <h1>
+      {{ $t("hello") }}
+    </h1>
+    <h2>
+      {{ this.$t("hello") }}
+    </h2>
+  </div>
 </template>
 
 <script>
