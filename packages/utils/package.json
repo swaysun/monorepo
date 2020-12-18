@@ -8,6 +8,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
+  "typings": "types/index.d.ts",
   "directories": {
     "test": "__tests__"
   },
@@ -16,6 +17,7 @@
     "dist/*.js",
     "types/*.d.ts"
   ],
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/swaysun/monorepo.git"
@@ -30,6 +32,5 @@
   "homepage": "https://github.com/swaysun/monorepo#readme",
   "dependencies": {
     "rollup": "^2.35.1"
-  },
-  "gitHead": "3a8f91c0fc6fdc6960e5e50162b0c1e014cf9fa8"
+  }
 }
