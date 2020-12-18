@@ -7,12 +7,12 @@
 export function getFormatDate(date1, type) {
   let date = new Date(date1);
   var bool = true;
-  let y = date.getFullYear();
-  let m = date.getMonth() + 1;
-  let d = date.getDate();
-  let H = date.getHours();
-  let mm = date.getMinutes();
-  let s = date.getSeconds();
+  let y: any = date.getFullYear();
+  let m: any = date.getMonth() + 1;
+  let d: any = date.getDate();
+  let H: any = date.getHours();
+  let mm: any = date.getMinutes();
+  let s: any = date.getSeconds();
   m = m < 10 ? "0" + m : m;
   d = d < 10 ? "0" + d : d;
   H = H < 10 ? "0" + H : H;
