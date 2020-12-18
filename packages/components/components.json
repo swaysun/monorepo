@@ -1,3 +1,4 @@
 {
-  "backto-top": "./src/backto-top/index.js"
+  "backto-top": "./src/backto-top/index.js",
+  "hello-world": "./src/hello-world/index.js"
 }

@@ -25,6 +25,7 @@ exports.packagesExternals = {
 exports.externals = externals;
 
 exports.alias = {
+  '@': path.resolve(__dirname, "../src"),
   main: path.resolve(__dirname, '../src'),
   packages: path.resolve(__dirname, '../lib'),
   '@grg/components': path.resolve(__dirname, '../')
