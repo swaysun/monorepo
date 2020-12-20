@@ -2,7 +2,6 @@
 
 import BacktoTop from "./backto-top/index.js";
 import HelloWorld from "./hello-world/index.js";
-
 const components = [BacktoTop, HelloWorld];
 
 const install = function (Vue) {
