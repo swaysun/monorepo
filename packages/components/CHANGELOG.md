@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/swaysun/monorepo/compare/@grg/components@0.7.2...@grg/components@0.8.0) (2020-12-20)
+
+### Features
+
+- d ([f00fbcd](https://github.com/swaysun/monorepo/commit/f00fbcd411950467d82810282e5f3baf742b6531))
+
 ## [0.7.2](https://github.com/swaysun/monorepo/compare/@grg/components@0.7.1...@grg/components@0.7.2) (2020-12-20)
 
 **Note:** Version bump only for package @grg/components
