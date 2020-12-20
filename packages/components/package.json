@@ -1,6 +1,6 @@
 {
   "name": "@grg/components",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
   "author": "liufeng <lfeng18@grgbanking.com>",
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/swaysun/monorepo#readme",
   "dependencies": {
-    "@grg/utils": "^0.14.0",
+    "@grg/utils": "^0.15.0",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
     "@vue/babel-preset-jsx": "^1.2.4",
     "element-ui": "2.11.1",
