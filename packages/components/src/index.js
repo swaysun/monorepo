@@ -9,7 +9,6 @@ const install = function (Vue) {
 
 export default {
   install,
-  version: "12",
   Grid,
   GrgConfirm,
 };
