@@ -8,3 +8,4 @@ const install = function (Vue) {
 };
 
 export { install, Grid, GrgConfirm };
+export default { install, Grid, GrgConfirm };
