@@ -1,7 +1,7 @@
 import Grid from "./grid";
-import grgconfirm from "./comfirmDlg";
+import GrgConfirm from "./comfirmDlg";
 
-const components = [Grid, grgconfirm];
+const components = [Grid, GrgConfirm];
 
 const install = function (Vue) {
   if (install.installed) return;
@@ -10,5 +10,6 @@ const install = function (Vue) {
 
 export default {
   install,
-  ...components,
+  Grid,
+  GrgConfirm,
 };
