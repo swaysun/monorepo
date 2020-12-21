@@ -1,11 +1,21 @@
 import Grid from "./grid";
-import GrgConfirm from "./comfirmDlg";
+import GrgConfirm from "./comfirm-dlg";
+import IconSvg from "./icon-svg";
+import AutoSelect from "./auto-select";
 
-const components = [Grid, GrgConfirm];
-
+// const components = [Grid, GrgConfirm, IconSvg];
+const components = {
+  Grid,
+  GrgConfirm,
+  IconSvg,
+  AutoSelect,
+};
 const install = function (Vue) {
-  components.map((component) => Vue.component(component.name, component));
+  Object.values(components).map((component) => {
+    Vue.component(component.name, component);
+  });
+  // components.map((component) => Vue.component(component.name, component));
 };
 //
-export { install, Grid, GrgConfirm };
-export default { install, Grid, GrgConfirm };
+export { install, Grid, GrgConfirm, IconSvg, AutoSelect };
+export default { install, ...components };
