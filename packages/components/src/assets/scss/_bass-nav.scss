@@ -1,0 +1,245 @@
+/* Navbar
+------------------------------ */
+.site-navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  height: 60px;
+
+  @media screen and (max-width: 1540px) {
+    height: 60px;
+  }
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  background-color: #0064eb;
+
+  &--inverse {
+    .site-navbar__body {
+      background-color: transparent;
+    }
+
+    .el-menu {
+      color: #fff;
+      background: $--color-primary;
+
+      > .el-menu-item,
+      > .el-submenu > .el-submenu__title {
+        color: #fff;
+        background: $--color-primary;
+
+        &:focus,
+        &:hover {
+          color: #fff;
+          background-color: mix(#000, $--color-primary, 15%);
+        }
+      }
+
+      > .el-menu-item.is-active,
+      > .el-submenu.is-active > .el-submenu__title {
+        color: #fff;
+        border-bottom-color: mix(#fff, $--color-primary, 85%);
+      }
+
+      .el-menu-item i,
+      .el-submenu__title i,
+      .el-dropdown {
+        color: #fff;
+      }
+    }
+
+    .el-menu--popup-bottom-start {
+      background-color: $--color-primary;
+    }
+  }
+
+  &__header {
+    // position: relative;
+    // float: left;
+    width: 200px;
+    height: 60px;
+
+    @media screen and (max-width: 1540px) {
+      height: 60px;
+    }
+
+    // overflow: hidden;
+  }
+
+  &__brand {
+    // display: table-cell;
+
+    // vertical-align: middle;
+    width: 200px;
+    height: 60px;
+    margin: 0;
+    line-height: 60px;
+
+    @media screen and (max-width: 1540px) {
+      height: 60px;
+      line-height: 60px;
+    }
+
+    font-size: 0;
+    // text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #fff;
+
+    &-lg,
+    &-mini {
+      // margin: 0 0.3125rem;
+      color: #fff;
+
+      &:focus,
+      &:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      i {
+        font-size: 16px;
+      }
+    }
+
+    &-lg {
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .icon-ic_caidan-shouqi {
+        margin-right: 20px;
+      }
+    }
+
+    &-mini {
+      display: none;
+    }
+  }
+
+  &__switch {
+    font-size: 1rem;
+    border-bottom: none !important;
+  }
+
+  &__avatar {
+    border-bottom: none !important;
+
+    * {
+      vertical-align: inherit;
+    }
+
+    .el-dropdown-link {
+      color: #fff;
+
+      > img {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        vertical-align: middle;
+        border: 2px solid #e5f6ff;
+      }
+
+      > .name {
+        padding-left: 10px;
+      }
+
+      > .el-icon-caret-bottom {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__body {
+    width: 100%;
+    padding-right: 0px;
+    // width: calc(100vw - 200px);
+    position: relative;
+    // margin-left: 10rem;
+    height: 60px;
+
+    @media screen and (max-width: 1540px) {
+      height: 60px;
+    }
+
+    // padding-right: 0.9375rem;
+    // background-image: linear-gradient(
+    // 	270deg,
+    // 	rgba(0, 162, 255, 1) 0%,
+    // 	rgba(0, 118, 255, 1) 100%
+    // );
+    // background-color: #fff;
+    background: url("../img/top.png") no-repeat;
+  }
+
+  &__menu {
+    height: 60px;
+    background-color: transparent;
+    border: none !important;
+
+    // >.el-submenu.is-active>.el-submenu__title {
+    //   border-bottom-color: mix(#fff, $--color-primary, 85%);
+
+    //   >.icon-svg {
+    //     border-bottom-color: mix(#fff, $--color-primary, 85%);
+    //   }
+    // }
+
+    &--right {
+      float: right;
+    }
+
+    .el-menu-item {
+      min-width: 40px;
+      border: none;
+      padding: 0;
+      text-align: center;
+
+      &:first-child {
+        padding: 0 25px;
+      }
+    }
+
+    // a:focus,
+    // a:hover {
+    //   text-decoration: none;
+    // }
+
+    // .el-menu-item,
+    // .el-submenu>.el-submenu__title {
+    //   height: 60px;
+    //   line-height: 60px;
+
+    //   @media screen and (max-width: 1540px) {
+    //     height: 60px;
+    //     line-height: 60px;
+    //   }
+    // }
+
+    .el-menu-item:hover {
+      color: #000;
+      background: #ff0000;
+    }
+
+    .el-menu-item i {
+      color: #fff;
+    }
+
+    // .el-submenu>.el-menu {
+    //   top: 3.4375rem;
+    // }
+
+    // .el-badge {
+    //   display: inline;
+    //   z-index: 2;
+
+    //   &__content {
+    //     line-height: 1rem;
+    //   }
+    // }
+  }
+}

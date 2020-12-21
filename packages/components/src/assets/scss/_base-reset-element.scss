@@ -1,0 +1,25 @@
+.el-dropdown-menu.el-popper.el-dropdown-menu--medium {
+  padding: 5px 0;
+  margin-top: -8px;
+  margin-left: -20px;
+  border-radius: 0;
+
+  .el-dropdown-menu__item {
+    // background-color: red;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 20px;
+    padding-left: 2px;
+    font-size: 14px;
+
+    & + .el-dropdown-menu__item {
+      border-top: 1px dashed #cccccc;
+    }
+  }
+
+  // 隐藏箭头
+  .popper__arrow {
+    display: none;
+  }
+}

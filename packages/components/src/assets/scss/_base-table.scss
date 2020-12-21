@@ -1,0 +1,147 @@
+/* Table
+------------------------------ */
+.el-pagination {
+  text-align: center;
+}
+
+.el-table--border::after {
+  width: 0;
+}
+
+.el-table--border {
+  border-right: 1px solid #ebeef5;
+}
+
+.el-table--medium td,
+.el-table--medium th {
+  padding: 7px 0;
+}
+
+// element 表格对齐
+body .el-table th.gutter {
+  display: table-cell !important;
+}
+
+body .el-table colgroup.gutter {
+  display: table-cell !important;
+}
+
+.el-table p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.el-table .cell {
+  font-weight: 400;
+  color: #252c41;
+  margin-block-start: 2px;
+  margin-block-end: 2px;
+}
+
+.el-table--medium th {
+  padding: 4px 0;
+  background: #f9fbff;
+}
+
+.site-wrapper .box-content .el-pagination {
+  margin-top: 0.9375rem;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.site-content > .el-tabs .el-pager li {
+  color: $pagination-color;
+  background: transparent;
+  font-size: 12px;
+  font-weight: normal;
+  font-size: 10px;
+  min-width: 24px;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 0 2px;
+  margin: 0 5px;
+  height: 26px;
+}
+
+.el-pagination .btn-next .el-icon,
+.el-pagination .btn-prev .el-icon {
+  background: transparent;
+  color: $pagination-color;
+}
+
+.site-content > .el-tabs .el-pager li.active {
+  min-width: 34px;
+}
+
+.site-content > .el-tabs .el-pager li.active {
+  background: #1d84ef;
+  color: #fff;
+}
+
+.site-content > .el-tabs .grid-box .el-pagination .el-pagination__total {
+  font-size: 12px;
+  color: $pagination-color;
+  margin: 0 15px;
+}
+.site-content
+  > .el-tabs
+  .grid-box
+  .el-pagination__sizes
+  .el-input
+  .el-input__inner {
+  font-size: 12px;
+  color: $pagination-color;
+}
+
+.el-table::before {
+  height: 0;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td,
+.el-table thead th {
+  background: #f9fbff;
+}
+
+.el-table th.is-leaf,
+.el-table thead.is-group th {
+  background: #f5f9ff;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td,
+.el-table .el-table__body tr.el-table__row:hover td {
+  background-color: #e1f0ff;
+}
+
+.el-table .el-button--small {
+  padding: 0;
+}
+
+.el-table.el-table--mini td {
+  padding: 6px 0;
+}
+
+.site-content > .el-tabs .el-button--mini > [class^="icon-"],
+.site-content > .el-tabs .el-button--small > [class^="icon-"] {
+  font-size: 14px;
+
+  @media screen and (max-width: 1540px) {
+    font-size: 13px;
+  }
+}
+
+.el-table td,
+.el-table th.is-leaf {
+  border-bottom: none;
+}
+.el-table th.is-leaf,
+.el-table {
+  border-bottom: 1px solid #ebeef5;
+}
+
+.el-table__empty-text {
+  position: fixed;
+  left: 35%;
+}
+.notree .el-table__empty-text {
+  left: 30%;
+}

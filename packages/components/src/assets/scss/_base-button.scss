@@ -1,0 +1,302 @@
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-plain {
+  background: none;
+  border-color: #1d84ef;
+  color: #1d84ef;
+}
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .grid-search-form-box
+  .el-button.el-button--default {
+  border-color: #e0e4f2;
+  color: #6d819c;
+}
+
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .grid-search-form-box
+  .el-button.el-button--default:active {
+  color: #1d84ef;
+  background: #96d3f7;
+}
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button:focus,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-plain:focus {
+  background: none;
+  border-color: #1d84ef;
+  color: #1d84ef;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button:hover,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-plain:hover {
+  color: #1d84ef;
+  border-color: #1d84ef;
+  background: rgba(29, 132, 239, 0.1);
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button:active,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-plain:active {
+  color: #1d84ef;
+  border-color: #1d84ef;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button.is-disabled,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button.is-disabled:active,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button.is-disabled:focus,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button.is-disabled:hover,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-plain.is-disabled,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-plain.is-disabled:active,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-plain.is-disabled:focus,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-plain.is-disabled:hover {
+  background: none;
+  border-color: #1d84ef;
+  color: #1d84ef;
+  opacity: 0.4;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button--primary {
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 125, 255, 1) 0%,
+    rgba(0, 166, 251, 1) 100%
+  );
+  border-color: #1d84ef;
+  border: none;
+  padding: 1px 16px;
+}
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button-group
+  .el-button--primary {
+  background: rgba(0, 125, 255, 1);
+}
+
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button-group
+  .el-button--primary {
+  padding: 8px 11px;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button--primary:focus {
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 125, 255, 1) 0%,
+    rgba(0, 166, 251, 1) 100%
+  );
+  border-color: #1d84ef;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button--primary:hover {
+  background: linear-gradient(90deg, rgba(0, 125, 255, 1) 0%);
+  border-color: #1d84ef;
+  color: #fff;
+}
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button-group
+  .el-button--primary:focus,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button-group
+  .el-button--primary:hover {
+  background: rgba(0, 125, 255, 1);
+}
+
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary:active {
+  background: linear-gradient(90deg, rgba(0, 125, 255, 1) 0%);
+  border-color: #1d84ef;
+  color: #fff;
+}
+
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-disabled,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-disabled:active,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-disabled:focus,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--primary.is-disabled:hover {
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 125, 255, 1) 0%,
+    rgba(0, 166, 251, 1) 100%
+  );
+  border-color: #1d84ef;
+  opacity: 0.4;
+}
+
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button.el-button--text.is-disabled,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button.el-button--text.is-disabled:active,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button.el-button--text.is-disabled:focus,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button.el-button--text.is-disabled:hover {
+  color: #f00;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 125, 255, 1) 0%,
+    rgba(0, 166, 251, 1) 100%
+  );
+  border-color: #1d84ef;
+  opacity: 0.4;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button--text {
+  border-color: transparent;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button--text:focus {
+  border-color: transparent;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button--text:hover {
+  border-color: transparent;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button--text:active {
+  border-color: transparent;
+}
+
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--text.is-disabled,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--text.is-disabled:focus,
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-button--text.is-disabled:hover,
+.site-content__wrapper /deep/ .site-content .el-tabs .el-button--text:active {
+  border-color: transparent;
+}
+
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-form-item__content
+  .el-button {
+  padding: 0 15px;
+}
+
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-table
+  .el-button.el-button--text.is-disabled {
+  color: #e0e4f2;
+  border: none;
+  background: transparent;
+  opacity: 1;
+}
+
+.site-content__wrapper /deep/ .site-content .el-tabs .el-dialog .el-button {
+  padding: 0 15px;
+  height: 38px;
+  line-height: 38px;
+}
+.site-content__wrapper
+  /deep/
+  .site-content
+  .el-tabs
+  .el-dialog
+  .el-table
+  .el-button {
+  padding: 0;
+}
