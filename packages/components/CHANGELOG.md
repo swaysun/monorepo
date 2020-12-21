@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/swaysun/monorepo/compare/@grg/components@0.12.0...@grg/components@0.13.0) (2020-12-21)
+
+### Features
+
+- f ([c7be57a](https://github.com/swaysun/monorepo/commit/c7be57ae612b9a531cbf74a7a0780e79a26163ba))
+
 # [0.12.0](https://github.com/swaysun/monorepo/compare/@grg/components@0.11.1...@grg/components@0.12.0) (2020-12-21)
 
 ### Features
