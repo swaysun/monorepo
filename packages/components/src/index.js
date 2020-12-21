@@ -1,5 +1,5 @@
-import Grid from "./grid";
-import GrgConfirm from "./comfirmDlg";
+export { default as Grid } from "./grid";
+export { default as GrgConfirm } from "./comfirmDlg";
 
 const components = [Grid, GrgConfirm];
 
