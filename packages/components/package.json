@@ -1,7 +1,11 @@
 {
   "name": "@grg/components",
   "version": "0.13.0",
-  "main": "dist/components.common.js",
+  "main": "src/index.js",
+  "files": [
+    "src",
+    "dist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
