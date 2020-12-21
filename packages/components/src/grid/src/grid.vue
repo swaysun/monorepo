@@ -442,7 +442,7 @@ export default {
       type: Boolean,
       default: true,
     },
-    // 需要反选数组  为一维数组 页面内先处理只剩下rowkey的一维数组集合
+    // 需要反选数组 为一维数组 页面内先处理只剩下rowkey的一维数组集合
     selectArray: {
       type: Array,
       default: () => [],
