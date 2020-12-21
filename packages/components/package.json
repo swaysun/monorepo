@@ -1,6 +1,6 @@
 {
   "name": "@grg/components",
-  "version": "0.15.1",
+  "version": "0.16.0",
   "main": "src/index.js",
   "files": [
     "src",
