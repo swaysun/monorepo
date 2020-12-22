@@ -167,7 +167,6 @@ export default {
       } else {
         this.$emit('change', [])
       }
-
     }
   },
   filters: {},
@@ -180,7 +179,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-.auoSelect {
-}
-</style>

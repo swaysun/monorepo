@@ -14,6 +14,7 @@
     "cm": "git-cz",
     "bv": "lerna version --conventional-commits",
     "pu": "lerna publish from-git",
+    "build": "lerna run build",
     "build:utils": "cd ./packages/utils && yarn run rollup -c",
     "build:components": "cd ./packages/components && yarn clean && yarn build:file && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js",
     "build:components:conf": "cd ./packages/components && yarn build:file && webpack --config build/webpack.conf.js",

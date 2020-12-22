@@ -86,16 +86,11 @@ export default {
           params: this.$http.adornParams(),
         }).then(({ data }) => {
           if (data && data.code === 0) {
-            this.userId = data.data.user.userId;
-            this.userName = data.data.user.username;
-            data.data.user["roleName"] = data.data.roleName || [];
-            this.$store.commit("common/updateUserInfo", data.data.user);
+            this.$store.commit("common/updateUserInfo", data.data);
             this.getDeptList();
           }
         });
       } else {
-        this.userId = userInfo.userId;
-        this.userName = userInfo.username;
         this.getDeptList();
       }
     },
@@ -230,7 +225,7 @@ export default {
   content: "\e64f" !important;
 }
 .isactive
-  /deep/
+  ::v-deep
   .el-tree--highlight-current
   .el-tree-node.is-current
   > .el-tree-node__content {
@@ -244,7 +239,7 @@ export default {
   height: 100%;
 }
 
-.feel-tree /deep/ .el-tree > .el-tree-node {
+.feel-tree ::v-deep .el-tree > .el-tree-node {
   min-width: 100%;
   display: inline-block;
 }
