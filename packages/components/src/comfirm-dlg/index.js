@@ -1,6 +1,6 @@
 import ComfirmDlg from "./src/comfirm-dlg.vue";
 
-function install(Vue, { store }) {
+function install(Vue, { store } = {}) {
   let GRGComfirm = Vue.extend(ComfirmDlg);
   let instance;
   let currentMsg;
