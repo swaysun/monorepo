@@ -1,7 +1,7 @@
 import ComfirmDlg from "./src/comfirm-dlg.vue";
 
 function install(Vue, opt) {
-  let GRGComfirm = Vue.extend(ComfirmDlg);
+  let GRGComfirm = Vue.extend(comfirmDlg);
   let instance;
   let currentMsg;
   if (!instance) {
@@ -17,11 +17,15 @@ function install(Vue, opt) {
     }
   }
   GRGComfirm.prototype.callback = defaultCallBack;
-  const { state } = (Vue.prototype.$grgconfirm = (comfirmTips, opt) => {
+
+  Vue.prototype.$grgconfirm = (comfirmTips, opt) => {
+    console.log("GRGComfirm", GRGComfirm);
+    console.log("instance", instance);
+    console.log("Vue", Vue);
     instance.$mount(document.createElement("div"));
     document.body.appendChild(instance.$el);
     instance.value = true;
-    if ((instance.state.systemSetting.locale || "zh") === "zh") {
+    if ((instance.$store.state.systemSetting.locale || "zh") === "zh") {
       instance.title = "提示";
       instance.comfirmTips = comfirmTips || "确认此操作 ?";
       instance.cancel = "取消";
@@ -43,7 +47,7 @@ function install(Vue, opt) {
         reject,
       };
     });
-  });
+  };
 
   let removeDom = (event) => {
     if (event.target.parentNode.childNodes.length > 1) {
@@ -59,7 +63,7 @@ export default {
 
 // 组件的使用
 // <!-- 弹框 -->
-// <comfirm-dlg v-model="ComfirmDlg"
+// <comfirm-dlg v-model="comfirmDlg"
 //              :icon="require('../../../../assets/img/pop_arrived.png')"
 //              :comfirmTips="comfirmArrivalTips">
 // </comfirm-dlg>
