@@ -1,6 +1,6 @@
 import ComfirmDlg from "./src/comfirm-dlg.vue";
 
-function install(Vue, opt) {
+function install(Vue, { store }) {
   let GRGComfirm = Vue.extend(ComfirmDlg);
   let instance;
   let currentMsg;
@@ -19,10 +19,12 @@ function install(Vue, opt) {
   GRGComfirm.prototype.callback = defaultCallBack;
 
   Vue.prototype.$grgconfirm = function (comfirmTips, opt) {
+    const $store = store || this.$store || null;
+    const locale = $store?.state?.systemSetting?.locale || "zh";
     instance.$mount(document.createElement("div"));
     document.body.appendChild(instance.$el);
     instance.value = true;
-    if ((this.$store.state.systemSetting.locale || "zh") === "zh") {
+    if (locale === "zh") {
       instance.title = "提示";
       instance.comfirmTips = comfirmTips || "确认此操作 ?";
       instance.cancel = "取消";
