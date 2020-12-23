@@ -18,14 +18,11 @@ function install(Vue, opt) {
   }
   GRGComfirm.prototype.callback = defaultCallBack;
 
-  Vue.prototype.$grgconfirm = (comfirmTips, opt) => {
-    console.log("GRGComfirm", GRGComfirm);
-    console.log("instance", instance);
-    console.log("Vue", Vue);
+  Vue.prototype.$grgconfirm = function (comfirmTips, opt) {
     instance.$mount(document.createElement("div"));
     document.body.appendChild(instance.$el);
     instance.value = true;
-    if ((instance.$store.state.systemSetting.locale || "zh") === "zh") {
+    if ((this.$store.state.systemSetting.locale || "zh") === "zh") {
       instance.title = "提示";
       instance.comfirmTips = comfirmTips || "确认此操作 ?";
       instance.cancel = "取消";
