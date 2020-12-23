@@ -1,7 +1,7 @@
 import ComfirmDlg from "./src/comfirm-dlg.vue";
 
 function install(Vue, opt) {
-  let GRGComfirm = Vue.extend(comfirmDlg);
+  let GRGComfirm = Vue.extend(ComfirmDlg);
   let instance;
   let currentMsg;
   if (!instance) {
@@ -63,7 +63,7 @@ export default {
 
 // 组件的使用
 // <!-- 弹框 -->
-// <comfirm-dlg v-model="comfirmDlg"
+// <comfirm-dlg v-model="ComfirmDlg"
 //              :icon="require('../../../../assets/img/pop_arrived.png')"
 //              :comfirmTips="comfirmArrivalTips">
 // </comfirm-dlg>
