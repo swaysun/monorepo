@@ -33,7 +33,7 @@ import deptTree from "./dept-tree.vue";
 import regionTree from "./region-tree.vue";
 
 export default {
-  name: "treeSelect",
+  name: "TreeSelect",
   components: { deptTree, regionTree },
   mixins: [],
   props: {
