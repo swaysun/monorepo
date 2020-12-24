@@ -5,6 +5,7 @@ import AutoSelect from "./auto-select";
 import TreeSelect from "./tree-select";
 import DeptTree from "./dept-tree";
 import RegionTree from "./region-tree";
+import SetColor from "./set-color";
 
 const components = {
   Grid,
@@ -14,6 +15,7 @@ const components = {
   TreeSelect,
   DeptTree,
   RegionTree,
+  SetColor,
 };
 const install = function (Vue) {
   Object.values(components).map((component) => {
@@ -31,4 +33,5 @@ export {
   TreeSelect,
   DeptTree,
   RegionTree,
+  SetColor,
 };
