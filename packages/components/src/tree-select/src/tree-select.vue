@@ -27,7 +27,6 @@
     </el-select>
   </div>
 </template>
-
 <script>
 import deptTree from "./dept-tree.vue";
 import regionTree from "./region-tree.vue";
@@ -35,7 +34,6 @@ import regionTree from "./region-tree.vue";
 export default {
   name: "TreeSelect",
   components: { deptTree, regionTree },
-  mixins: [],
   props: {
     value: {
       type: [Object, String, Number],
@@ -107,8 +105,6 @@ export default {
       },
     },
   },
-  created() {},
-  mounted() {},
   methods: {
     selectNode(e, type) {
       console.log(e, type);
@@ -119,7 +115,5 @@ export default {
       this.$emit("selectNode", e);
     },
   },
-  filters: {},
-  watch: {},
 };
 </script>
