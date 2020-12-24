@@ -17,11 +17,17 @@
 </template>
 
 <script>
-const { version } = require("element-ui/package.json");
+// const { version } = require("element-ui/package.json");
 // element-ui version from node_modules
 const ORIGINAL_THEME = "#409EFF"; // default color
 export default {
   name: "SetColor",
+  props: {
+    version: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       chalk: "",
@@ -74,7 +80,7 @@ export default {
         };
       };
       if (!this.chalk) {
-        const url = `https://unpkg.com/element-ui@${version}/lib/theme-chalk/index.css`;
+        const url = `https://unpkg.com/element-ui@${this.version}/lib/theme-chalk/index.css`;
         console.log(url);
         await this.getCSSString(url, "chalk");
       }
