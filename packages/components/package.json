@@ -1,6 +1,6 @@
 {
   "name": "@grg/components",
-  "version": "0.18.3",
+  "version": "0.18.4",
   "main": "lib/index.js",
   "license": "ISC",
   "files": [
