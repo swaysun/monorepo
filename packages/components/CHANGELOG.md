@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/swaysun/monorepo/compare/@grg/components@0.17.10...@grg/components@0.18.0) (2020-12-24)
+
+### Features
+
+- **feelviewtree:** new component FeelviewTree ([c78ea41](https://github.com/swaysun/monorepo/commit/c78ea41eea578e5a661bdca8be50578b44da1e6c))
+- **set-color.vue:** new component SetColor ([01558d7](https://github.com/swaysun/monorepo/commit/01558d781270eac4538e9cd0aa96990d30d1b8d7))
+
 ## [0.17.10](https://github.com/swaysun/monorepo/compare/@grg/components@0.17.9...@grg/components@0.17.10) (2020-12-24)
 
 ### Bug Fixes
