@@ -1,17 +1,17 @@
 {
   "name": "@grg/components",
   "version": "0.18.3",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "license": "ISC",
   "files": [
     "src",
-    "dist"
+    "lib"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "build:all": "vue-cli-service build",
-    "build": "vue-cli-service build --target lib --name components --dest dist src/index.js"
+    "build": "vue-cli-service build --target lib --name components --dest lib src/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
