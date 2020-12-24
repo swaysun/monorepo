@@ -1,9 +1,7 @@
 import IconSvg from "./src/icon-svg.vue";
 
-function install(Vue) {
-  Vue.component("IconSvg", IconSvg);
-}
-
-export default {
-  install,
+IconSvg.install = function (Vue) {
+  Vue.component(IconSvg.name, IconSvg);
 };
+
+export default IconSvg;

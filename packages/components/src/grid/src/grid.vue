@@ -355,7 +355,7 @@ function treeRender (h) {
 import FeelviewTree from './feelview-tree.vue';
 
 export default {
-  name: 'grid',
+  name: 'Grid',
   components: { FeelviewTree },
   mixins: [],
   props: {

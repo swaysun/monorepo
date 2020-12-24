@@ -3,6 +3,8 @@ import GrgConfirm from "./comfirm-dlg";
 import IconSvg from "./icon-svg";
 import AutoSelect from "./auto-select";
 import TreeSelect from "./tree-select";
+import DeptTree from "./dept-tree";
+import RegionTree from "./region-tree";
 
 const components = {
   Grid,
@@ -10,6 +12,8 @@ const components = {
   IconSvg,
   AutoSelect,
   TreeSelect,
+  DeptTree,
+  RegionTree,
 };
 const install = function (Vue) {
   Object.values(components).map((component) => {
@@ -18,4 +22,13 @@ const install = function (Vue) {
 };
 //
 export default { install, ...components };
-export { install, Grid, GrgConfirm, IconSvg, AutoSelect, TreeSelect };
+export {
+  install,
+  Grid,
+  GrgConfirm,
+  IconSvg,
+  AutoSelect,
+  TreeSelect,
+  DeptTree,
+  RegionTree,
+};

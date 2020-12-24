@@ -1,9 +1,7 @@
 import Grid from "./src/grid.vue";
 
-function install(Vue) {
-  Vue.component("Grid", Grid);
-}
-
-export default {
-  install,
+Grid.install = function (Vue) {
+  Vue.component(Grid.name, Grid);
 };
+
+export default Grid;

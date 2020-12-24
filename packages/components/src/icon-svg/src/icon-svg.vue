@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "icon-svg",
+  name: "IconSvg",
   props: {
     name: {
       type: String,

@@ -1,9 +1,7 @@
 import AutoSelect from "./src/auto-select.vue";
 
-function install(Vue) {
-  Vue.component("AutoSelect", AutoSelect);
-}
-
-export default {
-  install,
+AutoSelect.install = function (Vue) {
+  Vue.component(AutoSelect.name, AutoSelect);
 };
+
+export default AutoSelect;

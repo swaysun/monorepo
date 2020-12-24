@@ -27,7 +27,7 @@
 
 <script type="text/jsx">
 export default {
-  name: 'auoSelect',
+  name: 'AuoSelect',
   components: {},
   mixins: [],
   props: {
