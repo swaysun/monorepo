@@ -6,6 +6,7 @@ import TreeSelect from "./tree-select";
 import DeptTree from "./dept-tree";
 import RegionTree from "./region-tree";
 import SetColor from "./set-color";
+import FeelviewTree from "./feelview-tree";
 
 const components = {
   Grid,
@@ -16,6 +17,7 @@ const components = {
   DeptTree,
   RegionTree,
   SetColor,
+  FeelviewTree,
 };
 const install = function (Vue) {
   Object.values(components).map((component) => {
@@ -34,4 +36,5 @@ export {
   DeptTree,
   RegionTree,
   SetColor,
+  FeelviewTree,
 };
