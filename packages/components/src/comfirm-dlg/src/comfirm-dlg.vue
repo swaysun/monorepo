@@ -25,7 +25,7 @@
 
 <script type="text/ecmascript-6">
 export default {
-  name: 'comfirmDlg',
+  name: 'ComfirmDlg',
   props: {
     value: {
       type: Boolean,
