@@ -7,7 +7,7 @@ Object.keys(components).forEach((item) => {
 
 module.exports = {
   productionSourceMap: false,
-  outputDir: "dist",
+  outputDir: "lib",
   configureWebpack: {
     entry: entrys,
     output: {
