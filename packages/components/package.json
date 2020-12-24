@@ -1,6 +1,6 @@
 {
   "name": "@grg/components",
-  "version": "0.18.1",
+  "version": "0.18.2",
   "main": "dist/components.common.js",
   "license": "ISC",
   "files": [
