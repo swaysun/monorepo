@@ -28,51 +28,51 @@
   </div>
 </template>
 
-<script type="text/jsx">
-import deptTree from './dept-tree.vue'
-import regionTree from './region-tree.vue'
+<script>
+import deptTree from "./dept-tree.vue";
+import regionTree from "./region-tree.vue";
 
 export default {
-  name: 'treeSelect',
+  name: "treeSelect",
   components: { deptTree, regionTree },
   mixins: [],
   props: {
     value: {
       type: [Object, String, Number],
-      default: () => { }
+      default: () => {},
     },
     keyName: {
       type: String,
-      default: 'id'
+      default: "id",
     },
     disabled: Boolean,
     type: {
       type: Number,
-      default: 0 // 0 机构树， 1 区域
+      default: 0, // 0 机构树， 1 区域
     },
     hasEmptyLabel: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
-  data () {
+  data() {
     return {
       popVisible: false,
-    }
+    };
   },
   computed: {
     selectKey: {
-      get () {
-        return this.value
+      get() {
+        return this.value;
       },
-      set (newVal, oldVal) {
+      set(newVal, oldVal) {
         // console.log(newVal);
         if (newVal !== oldVal) {
-          this.$emit('input', newVal)
+          this.$emit("input", newVal);
         }
-      }
+      },
     },
-    label () {
+    label() {
       if (this.type === 0) {
         return this.$grg.getDeptName(this.value) || this.value;
       } else {
@@ -80,49 +80,46 @@ export default {
       }
     },
     treeSelect: {
-      get () {
-        if (this.value === '' && this.type === 1) {
+      get() {
+        if (this.value === "" && this.type === 1) {
           return {
-            value: '',
-            label: this.hasEmptyLabel ? this.$t('status.all') : ''
-          }
+            value: "",
+            label: this.hasEmptyLabel ? this.$t("status.all") : "",
+          };
         }
         if (this.type === 0) {
           return {
             value: this.value,
-            label: this.$grg.getDeptName(this.value) || this.value
-          }
+            label: this.$grg.getDeptName(this.value) || this.value,
+          };
         } else {
           return {
             value: this.value,
-            label: this.$grg.getAreaName(this.value) || this.value
-          }
-
+            label: this.$grg.getAreaName(this.value) || this.value,
+          };
         }
       },
-      set (newVal, oldVal) {
+      set(newVal, oldVal) {
         console.log(newVal, oldVal);
         if (newVal !== oldVal) {
-          this.$emit('input', newVal)
+          this.$emit("input", newVal);
         }
-      }
-    }
-
+      },
+    },
   },
-  created () { },
-  mounted () { },
+  created() {},
+  mounted() {},
   methods: {
-    selectNode (e, type) {
+    selectNode(e, type) {
       console.log(e, type);
       this.popVisible = false;
       this.treeSelect = e[this.keyName];
-      this.selectKey = e[this.keyName]
-      this.$refs.treeSelect.blur()
-      this.$emit('selectNode', e)
+      this.selectKey = e[this.keyName];
+      this.$refs.treeSelect.blur();
+      this.$emit("selectNode", e);
     },
   },
   filters: {},
-  watch: {
-  }
-}
+  watch: {},
+};
 </script>
