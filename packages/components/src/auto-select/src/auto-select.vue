@@ -27,7 +27,7 @@
 
 <script type="text/jsx">
 export default {
-  name: 'AuoSelect',
+  name: 'AutoSelect',
   components: {},
   mixins: [],
   props: {
@@ -179,3 +179,7 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.auoSelect {
+}
+</style>

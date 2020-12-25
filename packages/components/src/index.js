@@ -1,5 +1,5 @@
 import Grid from "./grid";
-import GrgConfirm from "./comfirm-dlg";
+import GrgComfirm from "./grg-comfirm";
 import IconSvg from "./icon-svg";
 import AutoSelect from "./auto-select";
 import TreeSelect from "./tree-select";
@@ -10,7 +10,7 @@ import FeelviewTree from "./feelview-tree";
 
 const components = {
   Grid,
-  GrgConfirm,
+  GrgComfirm,
   IconSvg,
   AutoSelect,
   TreeSelect,
@@ -25,16 +25,16 @@ const install = function (Vue) {
   });
 };
 //
+// export {
+//   install,
+//   Grid,
+//   GrgComfirm,
+//   IconSvg,
+//   AutoSelect,
+//   TreeSelect,
+//   DeptTree,
+//   RegionTree,
+//   SetColor,
+//   FeelviewTree,
+// };
 export default { install, ...components };
-export {
-  install,
-  Grid,
-  GrgConfirm,
-  IconSvg,
-  AutoSelect,
-  TreeSelect,
-  DeptTree,
-  RegionTree,
-  SetColor,
-  FeelviewTree,
-};

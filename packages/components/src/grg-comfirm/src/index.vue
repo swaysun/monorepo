@@ -1,4 +1,3 @@
-// 二次确认弹框
 <template>
   <el-dialog
     @close="close"
@@ -25,7 +24,6 @@
 
 <script type="text/ecmascript-6">
 export default {
-  name: 'ComfirmDlg',
   props: {
     value: {
       type: Boolean,

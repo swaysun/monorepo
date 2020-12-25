@@ -15,12 +15,12 @@ module.exports = {
       libraryTarget: "commonjs2",
       library: "components",
     },
-    devtool: "#source-map",
   },
   chainWebpack: (config) => {
     config
       .plugin("extract-css")
       .init((Plugin, args) => new Plugin({ filename: "theme/[name].css" }));
+    config.optimization.minimize(false);
     config.optimization.delete("splitChunks");
     config.plugins.delete("copy");
     config.plugins.delete("preload");
