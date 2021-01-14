@@ -28,8 +28,6 @@
   </div>
 </template>
 <script>
-// import deptTree from "./dept-tree.vue";
-import regionTree from "./region-tree.vue";
 import DeptTree from "@grg/components/src/dept-tree";
 import RegionTree from "@grg/components/src/region-tree";
 
