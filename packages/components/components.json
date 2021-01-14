@@ -1,6 +1,8 @@
 {
   "auto-select": "./src/auto-select/index.js",
-  "grg-comfirm": "./src/grg-comfirm/index.js",
+  "base-dlg": "./src/base-dlg/index.js",
+  "custom-table": "./src/custom-table/index.js",
+  "grg-confirm": "./src/grg-confirm/index.js",
   "dept-tree": "./src/dept-tree/index.js",
   "feelview-tree": "./src/feelview-tree/index.js",
   "grid": "./src/grid/index.js",
