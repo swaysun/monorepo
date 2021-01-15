@@ -54,6 +54,7 @@
       ```
         模块：@grg/components
         引用：import { Grid } from @grg/components
+        之前：import Grid from '@/components/template/grid/grid.vue'
       ```
     - `autoSelect`
       ```

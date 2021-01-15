@@ -17,6 +17,11 @@ module.exports = {
     },
   },
   chainWebpack: (config) => {
+    config.module
+      .rule("images")
+      .use("url-loader")
+      .loader("url-loader")
+      .tap((options) => Object.assign(options, { limit: 20000 }));
     config
       .plugin("extract-css")
       .init((Plugin, args) => new Plugin({ filename: "theme/[name].css" }));
