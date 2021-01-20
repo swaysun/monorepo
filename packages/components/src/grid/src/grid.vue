@@ -831,7 +831,7 @@ export default {
           requestUrl = this.$http.adornItxUrl(this.api);
           break;
         default:
-          requestUrl = this.$http.adornUrl(this.api);
+          requestUrl = this.api;
           break;
       }
       const requestParams = {
