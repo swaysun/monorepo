@@ -114,11 +114,11 @@ function tableRender(h) {
       on-select-all={(val) => {
         this.selectAll(val);
       }}
-      on-row-click={(val, column) => {
-        if (column.label !== "Operate" && column.label !== "操作") {
-          this.handleClickTableRow(val, column);
-        }
-      }}
+      // on-row-click={(val, column) => {
+      //   if (column.label !== 'Operate' && column.label !== '操作') {
+      //     this.handleClickTableRow(val, column);
+      //   }
+      // }}
       on-cell-dblclick={(val) => {
         this.bccelldblclick(val);
       }}
@@ -473,9 +473,7 @@ export default {
       ids: [], // 全选用数组
       isCheckedAll: false, // 全选状态
       dataListSelections: [], // 复选选中数据 multiSelectedArr !== dataListSelections multiSelectedArr包含dataListSelections
-      // dataListKeysArray: [], // 复选选中 keys
-      // legacyArray: [], // 遗留没有勾选上的数据， 用于初始化multiSelectedArr不为空的情况
-      // selectArrayCopy: [] //翻页记忆存当前所选列表
+      cancleArr: [], // multiSelectedKeysArray被取消的
     };
   },
   computed: {
@@ -490,7 +488,11 @@ export default {
     legacyKeysArray() {
       const a = new Set(this.multiSelectedKeysArray);
       const b = new Set(this.dataListKeysArray);
-      return Array.from(new Set([...a].filter((x) => !b.has(x))));
+      return Array.from(
+        new Set(
+          [...a].filter((x) => !!!b.has(x) && this.cancleArr.indexOf(x) === -1)
+        )
+      );
     },
     legacyListSelections() {
       return this.multiSelectedArr.filter((i) => {
@@ -531,7 +533,7 @@ export default {
   mounted() {
     if (this.autoGetData) {
       this.$nextTick(() => {
-        this.getDataList();
+        this.getDataList(0);
       });
     }
     let _this = this;
@@ -546,6 +548,9 @@ export default {
     }
   },
   methods: {
+    clearCancleArr() {
+      this.cancleArr = [];
+    },
     setOriginForm(obj) {
       const temp = JSON.stringify(obj); // 这里必须要存json，js对象存的是指针呀， 不然你会发现他一直在变
       this.originForm = temp;
@@ -597,19 +602,16 @@ export default {
     },
     calcBtnStatus() {
       this.$nextTick(() => {
-        // console.log(this.$refs);
         if (!this.$refs.gridHideForm || !this.$refs.searchForm) {
           return;
         }
         const reference = window.getComputedStyle(this.$refs.gridHideForm.$el)
           .height;
         const referenceHeight = parseInt(reference);
-        // console.log('gridHideForm-h:', referenceHeight);
         this.singleLineFormHeight = referenceHeight - 1; // 单行表单高度， 为了隐藏第二行input的框，牺牲1px
         const heightTxt = window.getComputedStyle(this.$refs.searchForm.$el)
           .height;
         const realHeight = parseInt(heightTxt);
-        // console.log('realHeight:', realHeight);
         if (realHeight > referenceHeight) {
           this.hasMoreBtn = true;
         } else {
@@ -619,7 +621,7 @@ export default {
     },
     keyupHandler(e) {
       if (e.keyCode === 13) {
-        this.getDataList();
+        this.getDataList(0);
       }
     },
     // 双击进详情操作 emit
@@ -628,7 +630,6 @@ export default {
     },
     // 点击行选中
     handleClickTableRow(row, column) {
-      // console.log(column);
       if (this.isDefaultTableColClick) {
         this.$refs.table.toggleRowSelection(row);
       } else {
@@ -637,7 +638,6 @@ export default {
     },
     // 全选
     selectAll(arr) {
-      console.log("全选 =", arr);
       this.toggleAllSelection(arr);
     },
     handleSelectionChange(selection) {
@@ -706,6 +706,7 @@ export default {
     resetFormData() {
       this.$emit("update:model", JSON.parse(this.originForm));
       // this.selectArrayCopy = []
+      this.$emit("update:multiSelectedArr", []);
       this.closeAndclearSelection();
       setTimeout(() => {
         if (this.hasTree) {
@@ -729,15 +730,14 @@ export default {
     sizeChangeHandle(val) {
       this.pageIndex = 1;
       this.pageSize = val;
-      this.getDataList();
+      this.getDataList(0);
     },
     // 切换分页
     currentChangeHandle(val) {
       this.pageIndex = val;
-      this.getDataList();
+      this.getDataList(0);
     },
     selectHandle(selection, row) {
-      console.log("on-select:", selection, row);
       const hasSelection = this.$refs.table.selection.filter(
         (item) => item[this.rowKey] === row[this.rowKey]
       );
@@ -759,6 +759,7 @@ export default {
           }
         }
       } else {
+        this.cancleArr.push(row[this.rowKey]);
         if (row && row.children && row.children.length) {
           row.children.forEach((i) => {
             this.$nextTick(() => {
@@ -773,7 +774,6 @@ export default {
     },
     // select-change
     selectionChangeHandle(val) {
-      console.log(val);
       this.dataListSelections = val;
       if (this.singleSelect) {
         this.$emit("update:multiSelectedArr", this.dataListSelections);
@@ -787,12 +787,14 @@ export default {
       return this.dataListSelections || [];
     },
     // 获取数据列表
-    getDataList(reflesh) {
+    getDataList(reflesh = 1) {
+      let needRefresh = reflesh;
       if (this.getChartData) {
         this.getChartData();
       }
-      if (reflesh) {
+      if (needRefresh) {
         this.pageIndex = 1;
+        this.$emit("update:multiSelectedArr", []);
         // this.selectArrayCopy = []
         this.closeAndclearSelection();
       }
@@ -917,7 +919,7 @@ export default {
       if (this.dataType !== index) {
         this.dataType = index;
         if (this.dataType === 0) {
-          this.getDataList();
+          this.getDataList(0);
         } else {
           this.$emit("changeGraph");
         }
@@ -1002,6 +1004,7 @@ export default {
     // 翻页记忆  调用清空当前选中数据
     closeAndclearSelection() {
       this.$nextTick(() => {
+        this.clearCancleArr = [];
         if (typeof this.$refs.table !== "undefined") {
           this.$refs.table.clearSelection();
           this.pageIndex = 1;
@@ -1032,7 +1035,6 @@ export default {
     //   handler (val) {
     //     // this.setSelectArray()
     //     this.selectArrayCopy = val
-    //     // console.log('触发', this.selectArrayCopy)
     //   },
     //   immediate: true
     // },
@@ -1042,7 +1044,6 @@ export default {
           // this.$refs.table.clearSelection();
           this.dataListSelections = [];
           // this.$refs.table.doLayout();
-          // console.log('clearSelection')
         }
       },
       immediate: true,
@@ -1058,7 +1059,6 @@ export default {
       monitor: monitorRender.call(this, h),
     };
     // 页面渲染是原则上按照layout数组顺序的，但是实际考虑from放在首个
-    // console.log(this.layout)
     const l = this.layout.map((item) => TEMPLATE_MAP[item]);
     const formIndex = this.layout.indexOf("form");
     if (formIndex === -1) {
