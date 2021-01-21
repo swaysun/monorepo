@@ -2,7 +2,7 @@
   <el-button
     class="e-button"
     v-bind="$attrs"
-    :loading="loadingStatus"
+    :loading="buttonLoading"
     @click="onClick"
   >
     <slot />
@@ -31,6 +31,18 @@ export default {
       type: String,
       default: "Loading",
     },
+    spinner: {
+      type: String,
+      default: "Loading",
+    },
+    spinner: {
+      type: String,
+      default: "el-icon-loading",
+    },
+    background: {
+      type: String,
+      default: "rgba(0, 0, 0, 0.7)",
+    },
     confirm: {
       type: Boolean,
       default: false,
@@ -42,33 +54,40 @@ export default {
   },
   data() {
     return {
-      loadingStatus: false,
+      buttonLoading: false,
       loadingInstance: null,
     };
   },
   methods: {
-    startLoading() {
+    startButtonLoading() {
       if (this.loading) {
-        this.loadingStatus = true;
+        this.buttonLoading = true;
       }
     },
-    stopLoading() {
-      this.loadingStatus = false;
+    stopButtonLoading() {
+      this.buttonLoading = false;
     },
     startCustomLoading() {
-      const { fullscreen, target, lock, loadingText: text } = this;
+      const {
+        fullscreen,
+        target,
+        lock,
+        loadingText: text,
+        spinner,
+        background,
+      } = this;
       const opts = {
         lock,
         text,
-        spinner: "el-icon-loading",
-        background: "rgba(0, 0, 0, 0.7)",
+        spinner,
+        background,
       };
       if (fullscreen) {
         opts.fullscreen = fullscreen;
       } else if (target) {
         opts.target = target;
       }
-      if (this.fullscreen || this.target) {
+      if (fullscreen || target) {
         this.loadingInstance = Loading.service(opts);
       }
     },
@@ -82,10 +101,10 @@ export default {
       if (this.confirm) {
         this.messageConfirm();
       } else {
-        this.startLoading();
+        this.startButtonLoading();
         this.startCustomLoading();
         this.$emit("click", () => {
-          this.stopLoading();
+          this.stopButtonLoading();
           this.stopCustomLoading();
         });
       }

@@ -16,7 +16,7 @@ module.exports = {
       library: "components",
     },
     externals: {
-      "element-ui": "ELEMENT",
+      "element-ui": "element-ui",
     },
   },
   chainWebpack: (config) => {
