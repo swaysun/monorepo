@@ -652,7 +652,7 @@ export default {
       this.isCheckedAll = !this.isCheckedAll;
       if (this.isCheckedAll) {
         selectedData.forEach((subRow) => {
-          if (subRow.hasOwnProperty("children")) {
+          if (subRow.children) {
             this.toggleSelection(subRow["children"]);
           }
         });
