@@ -15,6 +15,9 @@ module.exports = {
       libraryTarget: "commonjs2",
       library: "components",
     },
+    externals: {
+      "element-ui": "ELEMENT",
+    },
   },
   chainWebpack: (config) => {
     config.module
