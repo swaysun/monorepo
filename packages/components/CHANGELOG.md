@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.1](https://github.com/swaysun/monorepo/compare/@grg/components@0.21.0...@grg/components@0.21.1) (2021-01-21)
+
+### Bug Fixes
+
+- **grid:** grid ([5686c5f](https://github.com/swaysun/monorepo/commit/5686c5f6cd7667fbc0228c8d892ecdf6775cf1b1))
+
 # [0.21.0](https://github.com/swaysun/monorepo/compare/@grg/components@0.20.2...@grg/components@0.21.0) (2021-01-21)
 
 ### Features
