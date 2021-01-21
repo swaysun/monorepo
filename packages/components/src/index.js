@@ -6,6 +6,7 @@ import BaseDlg from "./base-dlg";
 import CustomTable from "./custom-table";
 import TreeSelect from "./tree-select";
 import DeptTree from "./dept-tree";
+import EButton from "./e-button";
 import RegionTree from "./region-tree";
 import SetColor from "./set-color";
 import FeelviewTree from "./feelview-tree";
@@ -18,6 +19,7 @@ const components = {
   CustomTable,
   TreeSelect,
   DeptTree,
+  EButton,
   RegionTree,
   SetColor,
   FeelviewTree,
@@ -39,6 +41,7 @@ export {
   CustomTable,
   TreeSelect,
   DeptTree,
+  EButton,
   RegionTree,
   SetColor,
   FeelviewTree,

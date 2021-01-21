@@ -1332,7 +1332,7 @@ export default {
 /* 隐藏用于测算单行的表单 */
 .grid-hide-form {
   /* float: left;
-  margin-left: -100000px; */
+    margin-left: -100000px; */
   visibility: hidden;
   /* padding-bottom: 8px; */
   position: absolute;
