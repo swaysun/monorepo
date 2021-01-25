@@ -2,8 +2,8 @@
   <el-tree
     size="mini"
     class="filter-tree"
+    v-bind="$attrs"
     :data="deptList"
-    :props="defaultProps"
     highlight-current
     accordion
     :filter-node-method="filterNode"
@@ -16,6 +16,7 @@
 <script>
 export default {
   name: "DeptTree",
+  inheritAttrs: false,
   props: {
     defaultSendData: {
       type: Boolean,
@@ -23,38 +24,30 @@ export default {
         return false;
       },
     },
+    data: {
+      type: Array,
+    },
   },
   data() {
     return {
       deptList: [],
-      // defaultProps: {
-      //   children: 'children',
-      //   label: 'label'
-      // }
     };
   },
-  computed: {
-    defaultProps() {
-      let currentLan = this.$store.state.systemSetting.locale || "zh";
-      if (currentLan === "zh") {
-        return {
-          children: "children",
-          label: "label",
-        };
-      } else {
-        return {
-          children: "children",
-          label: "deptI18nCode",
-        };
-      }
+  watch: {
+    data: {
+      immediate: true,
+      handler(newVal) {
+        if (newVal) {
+          this.deptList = newVal;
+        } else {
+          if (this.$store.state.common.userInfo === null) {
+            this.getUserInfo();
+          } else {
+            this.getDeptData();
+          }
+        }
+      },
     },
-  },
-  mounted() {
-    if (this.$store.state.common.userInfo === null) {
-      this.getUserInfo();
-    } else {
-      this.getDeptData();
-    }
   },
   methods: {
     getDeptData() {
@@ -72,9 +65,7 @@ export default {
           if (this.defaultSendData) {
             this.$emit("deptList", data.data);
           }
-          this.deptList = JSON.parse(
-            JSON.stringify(data.data).replace(/name/g, "label")
-          );
+          this.deptList = data.data;
         }
       });
     },
