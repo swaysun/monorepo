@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/swaysun/monorepo/compare/@grg/components@0.21.1...@grg/components@0.22.0) (2021-01-25)
+
+### Bug Fixes
+
+- **feelview-tree:** feelview-tree ([20f7723](https://github.com/swaysun/monorepo/commit/20f77238c8276d8fbbb52065d3a7649a9cdc486c))
+
+### Features
+
+- **dept-tree:** custom el-tree data ([a38fa6b](https://github.com/swaysun/monorepo/commit/a38fa6b2cdc1569211363e63cb0196b82581ce2c))
+
 ## [0.21.1](https://github.com/swaysun/monorepo/compare/@grg/components@0.21.0...@grg/components@0.21.1) (2021-01-21)
 
 ### Bug Fixes
