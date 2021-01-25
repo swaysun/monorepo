@@ -16,7 +16,7 @@
     "pu": "lerna publish from-git",
     "build": "lerna run build",
     "build:utils": "cd ./packages/utils && yarn run rollup -c",
-    "build:components": "cd ./packages/components && yarn build"
+    "build:components": "cd ./packages/components && yarn build:all"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
