@@ -23,6 +23,7 @@
         :filter-node-method="filterNode"
         @node-click="selectTree"
         :default-expanded-keys="treeExpansionIdList"
+        :expand-on-click-node="false"
         ref="tree"
       >
       </el-tree>
