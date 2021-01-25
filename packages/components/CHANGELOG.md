@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.2](https://github.com/swaysun/monorepo/compare/@grg/components@0.22.1...@grg/components@0.22.2) (2021-01-25)
+
+### Bug Fixes
+
+- **dept-tree:** add a custom props ([b3e34c6](https://github.com/swaysun/monorepo/commit/b3e34c62f7d5aaf73ece3909978697103bd161a0))
+
 ## [0.22.1](https://github.com/swaysun/monorepo/compare/@grg/components@0.22.0...@grg/components@0.22.1) (2021-01-25)
 
 ### Bug Fixes
