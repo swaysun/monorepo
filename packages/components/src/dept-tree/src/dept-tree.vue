@@ -4,6 +4,7 @@
     class="filter-tree"
     v-bind="$attrs"
     :data="deptList"
+    :props="props"
     highlight-current
     accordion
     :filter-node-method="filterNode"
@@ -26,6 +27,17 @@ export default {
     },
     data: {
       type: Array,
+    },
+    props: {
+      type: Object,
+      default() {
+        return {
+          label: "label",
+          children: "children",
+          disabled: "disabled",
+          isLeaf: "isLeaf",
+        };
+      },
     },
   },
   data() {
@@ -52,13 +64,12 @@ export default {
   methods: {
     getDeptData() {
       let userId = this.$store.state.common.userInfo.userId;
+      userId = "zs";
       this.$http({
-        url: this.$http.adornPlatformUrl(
-          `/generator/system/dept/list/tree/open`
-        ),
+        url: `/DevApi/sys/org/query/list`,
         method: "get",
         params: this.$http.adornParams({
-          userId: userId,
+          username: userId,
         }),
       }).then(({ data }) => {
         if (data && data.code === 0) {
