@@ -927,9 +927,9 @@ export default {
     },
     // 切换机构
     gridselectNode(e) {
-      this.model.deptId = e.id;
-      this.model.deptPath = e.deptPath;
-      this.model.deptName =
+      this.model.orgCode = e.orgCode;
+      this.model.orgPath = e.orgPath;
+      this.model.orgName =
         (this.$store.state.systemSetting.locale || "zh") === "zh"
           ? e.label
           : e.deptI18nCode;
