@@ -135,9 +135,7 @@ export default {
     },
     requestDept(userId) {
       this.$http({
-        url: this.$http.adornPlatformUrl(
-          `/generator/system/dept/list/tree/open`
-        ),
+        url: `/DevApi/sys/org/query/list`,
         method: "get",
         params: this.$http.adornParams({
           userId: userId,
