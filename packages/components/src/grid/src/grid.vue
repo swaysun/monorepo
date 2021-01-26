@@ -868,12 +868,14 @@ export default {
               if (this.hasPagination) {
                 this.list =
                   data[this.returnDataKey].list ||
-                  data[this.returnDataKey].records;
+                  data[this.returnDataKey].records ||
+                  [];
                 this.totalCount =
                   data[this.returnDataKey].totalCount ||
-                  data[this.returnDataKey].total;
+                  data[this.returnDataKey].total ||
+                  0;
               } else {
-                this.list = data[this.returnDataKey];
+                this.list = data[this.returnDataKey] || [];
               }
               this.$nextTick(() => {
                 if (this.$refs.table) {
@@ -1209,7 +1211,7 @@ export default {
 
 /* 顶层伪类  盖住机构树垂直滚动条 */
 .grid-lefttree::after {
-  content: "";
+  content: '';
   position: absolute;
   z-index: 2;
   right: 2px;
@@ -1242,7 +1244,7 @@ export default {
   padding-bottom: 5px;
 }
 .form-content::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   height: 7px;

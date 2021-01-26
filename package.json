@@ -13,7 +13,7 @@
     "clean": "yarn workspaces run clean",
     "cm": "git-cz",
     "bv": "lerna version --conventional-commits --yes",
-    "pu": "lerna publish from-git",
+    "pu": "lerna publish from-git --yes",
     "build": "lerna run build",
     "build:utils": "cd ./packages/utils && yarn run rollup -c",
     "build:components": "cd ./packages/components && yarn build:all"

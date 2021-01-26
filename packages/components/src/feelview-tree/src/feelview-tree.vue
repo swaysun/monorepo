@@ -12,7 +12,7 @@
       @click="toggleRowExpansion"
       type="text"
       :icon="foldStatu ? 'icon-ic_shouqi' : 'icon-ic_zhankai'"
-      >{{ foldStatu ? $t("statusLessAll") : $t("btn.unfoldAll") }}</el-button
+      >{{ foldStatu ? $t('statusLessAll') : $t('btn.unfoldAll') }}</el-button
     >
     <div class="filter-tree-box">
       <el-tree
@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: "FeelviewTree",
+  name: 'FeelviewTree',
   watch: {
     filterText(val) {
       this.$refs.tree.filter(val);
@@ -51,21 +51,21 @@ export default {
     },
     selectTree(e) {
       this.isactive = false;
-      this.$emit("selectNode", e);
+      this.$emit('selectNode', e);
     },
     getUserInfo() {
       const { userInfo } = this.$store.state.common;
-      if (JSON.stringify(userInfo) === "{}") {
+      if (JSON.stringify(userInfo) === '{}') {
         this.$http({
-          url: this.$http.adornPlatformUrl("/sys/user/data"),
-          method: "get",
+          url: this.$http.adornPlatformUrl('/sys/user/data'),
+          method: 'get',
           params: this.$http.adornParams(),
         }).then(({ data }) => {
           if (data && data.code === 0) {
             this.userId = data.user.userId;
             this.userName = data.user.username;
-            data.user.roleName = data.data.roleName || "";
-            this.$store.commit("common/updateUserInfo", data.data.user);
+            data.user.roleName = data.data.roleName || '';
+            this.$store.commit('common/updateUserInfo', data.data.user);
             this.getDeptList();
           }
         });
@@ -103,7 +103,7 @@ export default {
         if (requestTimeDiff > this.maxRequestTime) {
           this.requestDept(userId);
         } else {
-          this.$emit("topDept", this.tableData[0]);
+          this.$emit('topDept', this.tableData[0]);
         }
       }
     },
@@ -112,7 +112,7 @@ export default {
         url: this.$http.adornPlatformUrl(
           `/generator/system/dept/list/tree/open`
         ),
-        method: "get",
+        method: 'get',
         params: this.$http.adornParams({
           userId,
         }),
@@ -120,23 +120,23 @@ export default {
         // 这里等待后台支持请求带时间戳，判断数据有没变化再处理
         const { data } = Data;
         if (data && data.code === 0) {
-          this.$store.commit("common/updateRefreshStorage", false);
-          const currentLan = localStorage.getItem("locale") || "zh";
-          if (currentLan !== "zh") {
+          this.$store.commit('common/updateRefreshStorage', false);
+          const currentLan = localStorage.getItem('locale') || 'zh';
+          if (currentLan !== 'zh') {
             this.tableData = JSON.parse(
-              JSON.stringify(data.data).replace(/deptI18nCode/g, "label")
+              JSON.stringify(data.data).replace(/deptI18nCode/g, 'label')
             );
           } else {
             this.tableData = JSON.parse(
-              JSON.stringify(data.data).replace(/name/g, "label")
+              JSON.stringify(data.data).replace(/name/g, 'label')
             );
           }
           const params = {
             tableData: this.tableData,
             requestTime: Data.config.params.t,
           };
-          this.$store.commit("common/updateDeptList", params);
-          this.$emit("topDept", this.tableData[0]);
+          this.$store.commit('common/updateDeptList', params);
+          this.$emit('topDept', this.tableData[0]);
         } else {
           this.tableData = [];
         }
@@ -151,14 +151,14 @@ export default {
     return {
       timer: false,
       foldStatu: true,
-      filterText: "",
-      fromBrother: "",
+      filterText: '',
+      fromBrother: '',
       // 请求时间超过10分钟重新请求数据
       maxRequestTime: 600000,
       tableData: [],
       defaultProps: {
-        children: "children",
-        label: "label",
+        children: 'children',
+        label: 'label',
       },
       isactive: true,
     };
@@ -172,24 +172,24 @@ export default {
 }
 
 .tree-com .el-icon-caret-right:before {
-  content: "\e7c7" !important;
+  content: '\e7c7' !important;
 }
 .el-tree-node__label::before {
-  font-family: "iconfont" !important;
-  content: "\e670" !important;
+  font-family: 'iconfont' !important;
+  content: '\e670' !important;
   padding-right: 2px;
 }
 .el-icon-caret-right.expanded + .el-tree-node__label::before {
-  font-family: "iconfont" !important;
-  content: "\e66e" !important;
+  font-family: 'iconfont' !important;
+  content: '\e66e' !important;
 }
 
 .tree-com .is-leaf.el-icon-caret-right:before {
   background: none;
 }
 .is-leaf.el-icon-caret-right + .el-tree-node__label::before {
-  font-family: "iconfont" !important;
-  content: "\e64f" !important;
+  font-family: 'iconfont' !important;
+  content: '\e64f' !important;
 }
 .isactive
   ::v-deep
