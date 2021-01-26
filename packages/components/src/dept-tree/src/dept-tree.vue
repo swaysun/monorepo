@@ -123,6 +123,7 @@ export default {
         this.$emit('defaultSelectNode', this.$refs.tree.getCurrentNode());
       } else {
         this.$emit('defaultSelectNode', null);
+        this.$refs.tree.setCurrentKey(null);
       }
     },
   },
