@@ -118,8 +118,12 @@ export default {
       this.$emit('selectNode', e);
     },
     defaultSelectTreeEvent() {
-      this.$refs.tree.setCurrentKey(this.currentNodeKey);
-      this.$emit('defaultSelectNode', this.$refs.tree.getCurrentNode());
+      if (this.currentNodeKey) {
+        this.$refs.tree.setCurrentKey(this.currentNodeKey);
+        this.$emit('defaultSelectNode', this.$refs.tree.getCurrentNode());
+      } else {
+        this.$emit('defaultSelectNode', null);
+      }
     },
   },
 };
