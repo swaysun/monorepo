@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.5](https://github.com/swaysun/monorepo/compare/@grg/components@0.22.4...@grg/components@0.22.5) (2021-01-26)
+
+### Bug Fixes
+
+- **dept-tree:** default value event ([b25b50d](https://github.com/swaysun/monorepo/commit/b25b50df39c55e892d3c9a0dd89c840de217b294))
+
 ## [0.22.4](https://github.com/swaysun/monorepo/compare/@grg/components@0.22.3...@grg/components@0.22.4) (2021-01-26)
 
 ### Bug Fixes
