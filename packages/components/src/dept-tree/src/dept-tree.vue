@@ -5,6 +5,7 @@
     v-bind="$attrs"
     :data="deptList"
     :props="props"
+    :current-node-key="currentNodeKey"
     highlight-current
     accordion
     :filter-node-method="filterNode"
@@ -16,7 +17,7 @@
 
 <script>
 export default {
-  name: "DeptTree",
+  name: 'DeptTree',
   inheritAttrs: false,
   props: {
     defaultSendData: {
@@ -32,16 +33,20 @@ export default {
       type: Object,
       default() {
         return {
-          label: "label",
-          children: "children",
-          disabled: "disabled",
-          isLeaf: "isLeaf",
+          label: 'label',
+          children: 'children',
+          disabled: 'disabled',
+          isLeaf: 'isLeaf',
         };
       },
+    },
+    currentNodeKey: {
+      type: [Number, String],
     },
   },
   data() {
     return {
+      loaded: false, // deptList 加载完成后
       deptList: [],
     };
   },
@@ -51,6 +56,8 @@ export default {
       handler(newVal) {
         if (newVal) {
           this.deptList = newVal;
+          this.loaded = true;
+          this.defaultSelectTreeEvent();
         } else {
           if (this.$store.state.common.userInfo === null) {
             this.getUserInfo();
@@ -60,34 +67,45 @@ export default {
         }
       },
     },
+    currentNodeKey() {
+      this.$nextTick(() => {
+        if (this.loaded) {
+          // 默认值事件触发
+          this.defaultSelectTreeEvent();
+        }
+      });
+    },
   },
   methods: {
     getDeptData() {
       let userId = this.$store.state.common.userInfo.userId;
-      userId = "zs";
+      userId = 'zs';
       this.$http({
         url: `/DevApi/sys/org/query/list`,
-        method: "get",
+        method: 'get',
         params: this.$http.adornParams({
           username: userId,
         }),
       }).then(({ data }) => {
         if (data && data.code === 0) {
           if (this.defaultSendData) {
-            this.$emit("deptList", data.data);
+            this.$emit('deptList', data.data);
           }
           this.deptList = data.data;
+          this.loaded = true;
+          // 默认值事件触发
+          this.defaultSelectTreeEvent();
         }
       });
     },
     getUserInfo() {
       this.$http({
-        url: this.$http.adornPlatformUrl("/sys/user/data"),
-        method: "get",
+        url: this.$http.adornPlatformUrl('/sys/user/data'),
+        method: 'get',
         params: this.$http.adornParams(),
       }).then(({ data }) => {
         if (data && data.code === 0) {
-          this.$store.commit("common/updateUserInfo", data.data);
+          this.$store.commit('common/updateUserInfo', data.data);
           this.getDeptData();
         }
       });
@@ -97,7 +115,11 @@ export default {
       return data.label.indexOf(value) !== -1;
     },
     selectTree(e) {
-      this.$emit("selectNode", e);
+      this.$emit('selectNode', e);
+    },
+    defaultSelectTreeEvent() {
+      this.$refs.tree.setCurrentKey(this.currentNodeKey);
+      this.$emit('defaultSelectNode', this.$refs.tree.getCurrentNode());
     },
   },
 };
@@ -109,24 +131,24 @@ export default {
 }
 
 .tree-com .el-icon-caret-right:before {
-  content: "\e7c7" !important;
+  content: '\e7c7' !important;
 }
 .el-tree-node__label::before {
-  font-family: "iconfont" !important;
-  content: "\e670" !important;
+  font-family: 'iconfont' !important;
+  content: '\e670' !important;
   padding-right: 2px;
 }
 .el-icon-caret-right.expanded + .el-tree-node__label::before {
-  font-family: "iconfont" !important;
-  content: "\e66e" !important;
+  font-family: 'iconfont' !important;
+  content: '\e66e' !important;
 }
 
 .tree-com .is-leaf.el-icon-caret-right:before {
   background: none;
 }
 .is-leaf.el-icon-caret-right + .el-tree-node__label::before {
-  font-family: "iconfont" !important;
-  content: "\e64f" !important;
+  font-family: 'iconfont' !important;
+  content: '\e64f' !important;
 }
 .el-tree-node__label {
   font-size: 12px;
