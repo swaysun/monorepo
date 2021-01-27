@@ -3,7 +3,6 @@
     <el-input
       :placeholder="$t('selectDept')"
       size="mini"
-      style="margin: 25px 15px 10px"
       class="dept-filter-input"
       v-model="filterText"
     >
@@ -19,31 +18,53 @@
         class="filter-tree"
         node-key="id"
         :data="tableData"
-        :default-expand-all="foldStatu"
         :props="defaultProps"
         highlight-current
         :filter-node-method="filterNode"
         @node-click="selectTree"
+        :default-expanded-keys="treeExpansionIdList"
         ref="tree"
       >
       </el-tree>
+      <!-- :default-expand-all="foldStatu" -->
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'FeelviewTree',
   watch: {
     filterText(val) {
       this.$refs.tree.filter(val);
     },
   },
+  computed: {
+    defaultProps() {
+      const lan = this.$store.state.systemSetting.locale || 'zh';
+      return {
+        children: 'children',
+        label: 'label', // 只显示中文
+      };
+      // 暂时不做机构树语言切换
+      // if (lan === 'zh') {
+      //   return {
+      //     children: 'children',
+      //     label: 'name' // 中文
+      //   }
+      // } else {
+      //   return {
+      //     children: 'children',
+      //     label: 'label' // 英文
+      //   }
+      // }
+    },
+  },
   methods: {
     resetTree() {
+      this.treeExpansionIdList = [];
       this.$refs.tree.$el.click();
-      this.foldStatu = false;
-      this.toggleRowExpansion();
+      // this.foldStatu = false;
+      // this.toggleRowExpansion();
     },
     filterNode(value, data) {
       if (!value) return true;
@@ -52,9 +73,12 @@ export default {
     selectTree(e) {
       this.isactive = false;
       this.$emit('selectNode', e);
+      if (!this.treeExpansionIdList.includes(e.id)) {
+        this.treeExpansionIdList.push(e.id);
+      }
     },
     getUserInfo() {
-      const { userInfo } = this.$store.state.common;
+      let userInfo = this.$store.state.common.userInfo;
       if (JSON.stringify(userInfo) === '{}') {
         this.$http({
           url: this.$http.adornPlatformUrl('/sys/user/data'),
@@ -62,21 +86,17 @@ export default {
           params: this.$http.adornParams(),
         }).then(({ data }) => {
           if (data && data.code === 0) {
-            this.userId = data.user.userId;
-            this.userName = data.user.username;
-            data.user.roleName = data.data.roleName || '';
-            this.$store.commit('common/updateUserInfo', data.data.user);
+            this.$store.commit('common/updateUserInfo', data.data);
             this.getDeptList();
           }
         });
       } else {
-        this.userId = userInfo.userId;
-        this.userName = userInfo.username;
         this.getDeptList();
       }
     },
     // 表格中树展开收缩
     unfoldAll() {
+      this.treeExpansionIdList = [];
       this.toggleRowExpansion(true);
     },
     shrinkAll() {
@@ -85,43 +105,47 @@ export default {
     toggleRowExpansion() {
       this.foldStatu = !this.foldStatu;
       console.log(this.$refs.tree.store.nodesMap);
-      for (const i in this.$refs.tree.store.nodesMap) {
+      for (var i in this.$refs.tree.store.nodesMap) {
         this.$refs.tree.store.nodesMap[i].expanded = this.foldStatu;
       }
     },
 
     getDeptList() {
-      const { refreshStorage } = this.$store.state.common;
-      const { userId } = this.$store.state.common.userInfo;
-      const localDept = this.$store.state.common.deptList;
+      let refreshStorage = this.$store.state.common.refreshStorage;
+      let userId = this.$store.state.common.userInfo.userId;
+      let localDept = this.$store.state.common.deptList;
       if (localDept.tableData.length === 0 || refreshStorage) {
         this.requestDept(userId);
       } else {
         this.tableData = localDept.tableData;
-        const { requestTime } = localDept;
-        const requestTimeDiff = new Date().getTime() - requestTime;
+        console.log(this.tableData);
+        let requestTime = localDept.requestTime;
+        let requestTimeDiff = new Date().getTime() - requestTime;
         if (requestTimeDiff > this.maxRequestTime) {
           this.requestDept(userId);
         } else {
+          if (this.tableData.length > 0) {
+            if (!this.treeExpansionIdList.includes(this.tableData[0].id)) {
+              this.treeExpansionIdList.push(this.tableData[0].id);
+            }
+          }
           this.$emit('topDept', this.tableData[0]);
         }
       }
     },
     requestDept(userId) {
       this.$http({
-        url: this.$http.adornPlatformUrl(
-          `/generator/system/dept/list/tree/open`
-        ),
+        url: `/DevApi/sys/org/query/list`,
         method: 'get',
         params: this.$http.adornParams({
-          userId,
+          userId: userId,
         }),
       }).then((Data) => {
         // 这里等待后台支持请求带时间戳，判断数据有没变化再处理
-        const { data } = Data;
+        let data = Data.data;
         if (data && data.code === 0) {
           this.$store.commit('common/updateRefreshStorage', false);
-          const currentLan = localStorage.getItem('locale') || 'zh';
+          let currentLan = this.$store.state.systemSetting.locale || 'zh';
           if (currentLan !== 'zh') {
             this.tableData = JSON.parse(
               JSON.stringify(data.data).replace(/deptI18nCode/g, 'label')
@@ -131,7 +155,12 @@ export default {
               JSON.stringify(data.data).replace(/name/g, 'label')
             );
           }
-          const params = {
+          if (this.tableData.length > 0) {
+            if (!this.treeExpansionIdList.includes(this.tableData[0].id)) {
+              this.treeExpansionIdList.push(this.tableData[0].id);
+            }
+          }
+          let params = {
             tableData: this.tableData,
             requestTime: Data.config.params.t,
           };
@@ -139,6 +168,7 @@ export default {
           this.$emit('topDept', this.tableData[0]);
         } else {
           this.tableData = [];
+          this.treeExpansionIdList = [];
         }
       });
     },
@@ -150,17 +180,18 @@ export default {
   data() {
     return {
       timer: false,
-      foldStatu: true,
+      foldStatu: false,
       filterText: '',
       fromBrother: '',
       // 请求时间超过10分钟重新请求数据
       maxRequestTime: 600000,
       tableData: [],
-      defaultProps: {
-        children: 'children',
-        label: 'label',
-      },
+      // defaultProps: {
+      // 	children: 'children',
+      // 	label: 'label'
+      // },
       isactive: true,
+      treeExpansionIdList: [],
     };
   },
 };
@@ -168,7 +199,7 @@ export default {
 
 <style>
 .el-tree {
-  background: transparent;
+  background: transparent !important;
 }
 
 .tree-com .el-icon-caret-right:before {
@@ -214,9 +245,30 @@ export default {
   overflow: unset;
   overflow-x: auto;
   overflow-y: visible;
-  height: calc(100% - 88px);
+  height: calc(100% - 100px);
+  width: calc(100% - 2px);
+  padding-right: 15px;
+  margin-right: -2px;
 }
 .filter-tree-box:hover::-webkit-scrollbar {
-  height: 8px;
+  height: 12px;
+  border-radius: 4px;
+}
+.dept-filter-input {
+  margin: 25px 15px 10px 0;
+  height: 34px;
+  line-height: 34px;
+  width: calc(100% - 15px) !important;
+}
+.dept-filter-input .el-input__inner {
+  height: 34px;
+  line-height: 34px;
+  font-size: 14px;
+}
+.site-content > .el-tabs .feel-tree .el-button--mini {
+  padding: 7px 2px;
+}
+.el-tree-node__content > .el-tree-node__expand-icon {
+  padding: 6px 6px 6px 0;
 }
 </style>
