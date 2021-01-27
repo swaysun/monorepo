@@ -11,7 +11,7 @@
       @click="toggleRowExpansion"
       type="text"
       :icon="foldStatu ? 'icon-ic_shouqi' : 'icon-ic_zhankai'"
-      >{{ foldStatu ? $t("statusLessAll") : $t("btn.unfoldAll") }}</el-button
+      >{{ foldStatu ? $t('statusLessAll') : $t('btn.unfoldAll') }}</el-button
     >
     <div class="filter-tree-box">
       <el-tree
@@ -23,7 +23,6 @@
         :filter-node-method="filterNode"
         @node-click="selectTree"
         :default-expanded-keys="treeExpansionIdList"
-        :expand-on-click-node="false"
         ref="tree"
       >
       </el-tree>
@@ -41,10 +40,10 @@ export default {
   },
   computed: {
     defaultProps() {
-      const lan = this.$store.state.systemSetting.locale || "zh";
+      const lan = this.$store.state.systemSetting.locale || 'zh';
       return {
-        children: "children",
-        label: "label", // 只显示中文
+        children: 'children',
+        label: 'label', // 只显示中文
       };
       // 暂时不做机构树语言切换
       // if (lan === 'zh') {
@@ -73,21 +72,21 @@ export default {
     },
     selectTree(e) {
       this.isactive = false;
-      this.$emit("selectNode", e);
+      this.$emit('selectNode', e);
       if (!this.treeExpansionIdList.includes(e.id)) {
         this.treeExpansionIdList.push(e.id);
       }
     },
     getUserInfo() {
       let userInfo = this.$store.state.common.userInfo;
-      if (JSON.stringify(userInfo) === "{}") {
+      if (JSON.stringify(userInfo) === '{}') {
         this.$http({
-          url: this.$http.adornPlatformUrl("/sys/user/data"),
-          method: "get",
+          url: this.$http.adornPlatformUrl('/sys/user/data'),
+          method: 'get',
           params: this.$http.adornParams(),
         }).then(({ data }) => {
           if (data && data.code === 0) {
-            this.$store.commit("common/updateUserInfo", data.data);
+            this.$store.commit('common/updateUserInfo', data.data);
             this.getDeptList();
           }
         });
@@ -130,14 +129,14 @@ export default {
               this.treeExpansionIdList.push(this.tableData[0].id);
             }
           }
-          this.$emit("topDept", this.tableData[0]);
+          this.$emit('topDept', this.tableData[0]);
         }
       }
     },
     requestDept(userId) {
       this.$http({
         url: `/DevApi/sys/org/query/list`,
-        method: "get",
+        method: 'get',
         params: this.$http.adornParams({
           userId: userId,
         }),
@@ -145,15 +144,15 @@ export default {
         // 这里等待后台支持请求带时间戳，判断数据有没变化再处理
         let data = Data.data;
         if (data && data.code === 0) {
-          this.$store.commit("common/updateRefreshStorage", false);
-          let currentLan = this.$store.state.systemSetting.locale || "zh";
-          if (currentLan !== "zh") {
+          this.$store.commit('common/updateRefreshStorage', false);
+          let currentLan = this.$store.state.systemSetting.locale || 'zh';
+          if (currentLan !== 'zh') {
             this.tableData = JSON.parse(
-              JSON.stringify(data.data).replace(/deptI18nCode/g, "label")
+              JSON.stringify(data.data).replace(/deptI18nCode/g, 'label')
             );
           } else {
             this.tableData = JSON.parse(
-              JSON.stringify(data.data).replace(/name/g, "label")
+              JSON.stringify(data.data).replace(/name/g, 'label')
             );
           }
           if (this.tableData.length > 0) {
@@ -165,8 +164,8 @@ export default {
             tableData: this.tableData,
             requestTime: Data.config.params.t,
           };
-          this.$store.commit("common/updateDeptList", params);
-          this.$emit("topDept", this.tableData[0]);
+          this.$store.commit('common/updateDeptList', params);
+          this.$emit('topDept', this.tableData[0]);
         } else {
           this.tableData = [];
           this.treeExpansionIdList = [];
@@ -182,8 +181,8 @@ export default {
     return {
       timer: false,
       foldStatu: false,
-      filterText: "",
-      fromBrother: "",
+      filterText: '',
+      fromBrother: '',
       // 请求时间超过10分钟重新请求数据
       maxRequestTime: 600000,
       tableData: [],
@@ -204,24 +203,24 @@ export default {
 }
 
 .tree-com .el-icon-caret-right:before {
-  content: "\e7c7" !important;
+  content: '\e7c7' !important;
 }
 .el-tree-node__label::before {
-  font-family: "iconfont" !important;
-  content: "\e670" !important;
+  font-family: 'iconfont' !important;
+  content: '\e670' !important;
   padding-right: 2px;
 }
 .el-icon-caret-right.expanded + .el-tree-node__label::before {
-  font-family: "iconfont" !important;
-  content: "\e66e" !important;
+  font-family: 'iconfont' !important;
+  content: '\e66e' !important;
 }
 
 .tree-com .is-leaf.el-icon-caret-right:before {
   background: none;
 }
 .is-leaf.el-icon-caret-right + .el-tree-node__label::before {
-  font-family: "iconfont" !important;
-  content: "\e64f" !important;
+  font-family: 'iconfont' !important;
+  content: '\e64f' !important;
 }
 .isactive
   ::v-deep

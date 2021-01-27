@@ -907,7 +907,7 @@ export default {
         })
         .catch((error) => {
           if (
-            error.message.indexOf(
+            error.message && error.message.indexOf(
               `Cannot read property 'data' of undefined`
             ) === -1
           ) {
@@ -944,9 +944,9 @@ export default {
       if (this.selectNode) {
         this.selectNode();
       } else {
-        this.model.deptId = e.id;
-        this.model.deptPath = e.deptPath;
-        this.model.deptName =
+        this.model.orgCode = e.orgCode;
+        this.model.orgPath = e.orgPath;
+        this.model.orgName =
           (this.$store.state.systemSetting.locale || "zh") === "zh"
             ? e.label
             : e.deptI18nCode;
@@ -961,13 +961,13 @@ export default {
     gridgetTopDept(e) {
       let originForm = JSON.parse(this.originForm);
       if (this.resetDataFormType === "init") {
-        originForm["deptId"] = "";
-        originForm["deptPath"] = "";
-        originForm["deptName"] = "";
+        originForm["orgCode"] = "";
+        originForm["orgPath"] = "";
+        originForm["orgName"] = "";
       } else {
-        originForm["deptId"] = e.id || "";
-        originForm["deptPath"] = e.deptPath || "";
-        originForm["deptName"] =
+        originForm["orgCode"] = e.orgCode || "";
+        originForm["orgPath"] = e.orgPath || "";
+        originForm["orgName"] =
           (this.$store.state.systemSetting.locale || "zh") === "zh"
             ? e.label
             : e.deptI18nCode;
