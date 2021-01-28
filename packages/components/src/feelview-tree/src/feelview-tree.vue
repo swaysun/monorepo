@@ -62,9 +62,7 @@ export default {
   methods: {
     resetTree() {
       this.treeExpansionIdList = [];
-      this.$refs.tree.$el.click();
-      // this.foldStatu = false;
-      // this.toggleRowExpansion();
+      this.$refs.tree.setCurrentKey(null);
     },
     filterNode(value, data) {
       if (!value) return true;
