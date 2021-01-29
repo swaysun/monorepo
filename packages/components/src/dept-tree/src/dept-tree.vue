@@ -92,6 +92,7 @@ export default {
           }
           this.deptList = data.data;
           this.loaded = true;
+
           // 默认值事件触发
           this.defaultSelectTreeEvent();
         }
