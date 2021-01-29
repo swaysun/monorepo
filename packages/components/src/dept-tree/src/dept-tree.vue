@@ -81,7 +81,7 @@ export default {
       let userId = this.$store.state.common.userInfo.userId;
       userId = 'zs';
       this.$http({
-        url: `/DevApi/sys/org/query/list`,
+        url: this.$http.adornPlatformUrl('/sys/org/query/list'),
         method: 'get',
         params: this.$http.adornParams({
           username: userId,

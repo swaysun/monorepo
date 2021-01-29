@@ -133,7 +133,7 @@ export default {
     },
     requestDept(userId) {
       this.$http({
-        url: `/DevApi/sys/org/query/list`,
+        url: this.$http.adornPlatformUrl('/sys/org/query/list'),
         method: 'get',
         params: this.$http.adornParams({
           userId: userId,
