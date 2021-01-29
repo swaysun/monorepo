@@ -78,13 +78,12 @@ export default {
   },
   methods: {
     getDeptData() {
-      let userId = this.$store.state.common.userInfo.userId;
-      userId = 'zs';
+      let username = this.$store.state.common.userInfo.username;
       this.$http({
         url: this.$http.adornPlatformUrl('/sys/org/query/list'),
         method: 'get',
         params: this.$http.adornParams({
-          username: userId,
+          username,
         }),
       }).then(({ data }) => {
         if (data && data.code === 0) {
