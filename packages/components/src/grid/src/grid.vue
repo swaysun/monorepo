@@ -163,8 +163,8 @@ function formRender(h) {
       <span
         domPropsInnerHTML={
           this.moreStatus
-            ? String(this.$t("statusMore"))
-            : String(this.$t("statusLess"))
+            ? String(this.$t("btn.expand"))
+            : String(this.$t("btn.collapse"))
         }
       ></span>
       <i
