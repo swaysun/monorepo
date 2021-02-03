@@ -118,13 +118,15 @@ export default {
       this.$emit('selectNode', e);
     },
     defaultSelectTreeEvent() {
-      if (this.currentNodeKey) {
-        this.$refs.tree.setCurrentKey(this.currentNodeKey);
-        this.$emit('defaultSelectNode', this.$refs.tree.getCurrentNode());
-      } else {
-        this.$emit('defaultSelectNode', null);
-        this.$refs.tree.setCurrentKey(null);
-      }
+      this.$nextTick(() => {
+        if (this.currentNodeKey) {
+          this.$refs.tree.setCurrentKey(this.currentNodeKey);
+          this.$emit('defaultSelectNode', this.$refs.tree.getCurrentNode());
+        } else {
+          this.$emit('defaultSelectNode', null);
+          this.$refs.tree.setCurrentKey(null);
+        }
+      });
     },
   },
 };
