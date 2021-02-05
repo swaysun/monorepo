@@ -11,7 +11,7 @@
       @click="toggleRowExpansion"
       type="text"
       :icon="foldStatu ? 'icon-ic_shouqi' : 'icon-ic_zhankai'"
-      >{{ foldStatu ? $t('statusLessAll') : $t('btn.unfoldAll') }}</el-button
+      >{{ foldStatu ? $t('collapse') : $t('btn.expand') }}</el-button
     >
     <div class="filter-tree-box">
       <el-tree
@@ -45,26 +45,12 @@ export default {
         children: 'children',
         label: 'label', // 只显示中文
       };
-      // 暂时不做机构树语言切换
-      // if (lan === 'zh') {
-      //   return {
-      //     children: 'children',
-      //     label: 'name' // 中文
-      //   }
-      // } else {
-      //   return {
-      //     children: 'children',
-      //     label: 'label' // 英文
-      //   }
-      // }
     },
   },
   methods: {
     resetTree() {
       this.treeExpansionIdList = [];
       this.$refs.tree.$el.click();
-      // this.foldStatu = false;
-      // this.toggleRowExpansion();
     },
     filterNode(value, data) {
       if (!value) return true;
@@ -118,7 +104,6 @@ export default {
         this.requestDept(userId);
       } else {
         this.tableData = localDept.tableData;
-        console.log(this.tableData);
         let requestTime = localDept.requestTime;
         let requestTimeDiff = new Date().getTime() - requestTime;
         if (requestTimeDiff > this.maxRequestTime) {
@@ -145,16 +130,8 @@ export default {
         let data = Data.data;
         if (data && data.code === 0) {
           this.$store.commit('common/updateRefreshStorage', false);
-          let currentLan = this.$store.state.systemSetting.locale || 'zh';
-          if (currentLan !== 'zh') {
-            this.tableData = JSON.parse(
-              JSON.stringify(data.data).replace(/deptI18nCode/g, 'label')
-            );
-          } else {
-            this.tableData = JSON.parse(
-              JSON.stringify(data.data).replace(/name/g, 'label')
-            );
-          }
+          this.processData(data?.data);
+          this.tableData = data?.data || [];
           if (this.tableData.length > 0) {
             if (!this.treeExpansionIdList.includes(this.tableData[0].id)) {
               this.treeExpansionIdList.push(this.tableData[0].id);
@@ -171,6 +148,21 @@ export default {
           this.treeExpansionIdList = [];
         }
       });
+    },
+    processData(list = []) {
+      let temp = list.slice();
+      for (let i = 0; i < temp.length; i++) {
+        temp[i].label = this.getNameByI18nCode(temp[i]);
+        if (temp[i].children?.length) {
+          temp.push(...temp[i].children);
+        }
+      }
+    },
+    getNameByI18nCode(item = {}) {
+      if (item.i18nCode && this.$te(item.i18nCode)) {
+        return this.$t(item.i18nCode);
+      }
+      return item.name || '';
     },
   },
 

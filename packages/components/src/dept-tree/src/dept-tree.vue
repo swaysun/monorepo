@@ -100,7 +100,7 @@ export default {
     },
     getUserInfo() {
       this.$http({
-        url: this.$http.adornPlatformUrl('/sys/user/data'),
+        url: this.$http.adornPlatformUrl('/sys/login/user'),
         method: 'get',
         params: this.$http.adornParams(),
       }).then(({ data }) => {
