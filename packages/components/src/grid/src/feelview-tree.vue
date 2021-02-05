@@ -67,7 +67,7 @@ export default {
       let userInfo = this.$store.state.common.userInfo;
       if (JSON.stringify(userInfo) === '{}') {
         this.$http({
-          url: this.$http.adornPlatformUrl('/sys/user/data'),
+          url: this.$http.adornPlatformUrl('/sys/login/user'),
           method: 'get',
           params: this.$http.adornParams(),
         }).then(({ data }) => {

@@ -80,13 +80,10 @@ export default {
     getDeptData() {
       let username = this.$store.state.common.userInfo.username;
       this.$http({
-        url: this.$http.adornPlatformUrl('/sys/org/query/list'),
-        method: 'get',
-        params: this.$http.adornParams({
-          username,
-        }),
+        url: this.$http.adornPlatformUrl(`/sys/org/tree/${username}`),
       }).then(({ data }) => {
         if (data && data.code === 0) {
+          this.processData(data.data || []);
           if (this.defaultSendData) {
             this.$emit('deptList', data.data);
           }
@@ -127,6 +124,21 @@ export default {
           this.$refs.tree.setCurrentKey(null);
         }
       });
+    },
+    processData(list = []) {
+      let temp = list.slice();
+      for (let i = 0; i < temp.length; i++) {
+        temp[i].name = this.getNameByI18nCode(temp[i]);
+        if (temp[i].children?.length) {
+          temp.push(...temp[i].children);
+        }
+      }
+    },
+    getNameByI18nCode(item = {}) {
+      if (item.i18nCode && this.$te(item.i18nCode)) {
+        return this.$t(item.i18nCode);
+      }
+      return item.name || '';
     },
   },
 };
