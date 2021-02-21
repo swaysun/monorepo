@@ -92,7 +92,7 @@ export default {
         this.getDeptList();
       }
     },
-    // 展开收缩
+    // 表格中树展开收缩
     unfoldAll() {
       this.treeExpansionIdList = [];
       this.toggleRowExpansion(true);
