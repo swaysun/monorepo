@@ -671,18 +671,12 @@ export default {
       }
       rows.forEach((row) => {
         if (!this.rowHasSelected(row)) {
-          if (flag) {
-            this.$refs["table"].toggleRowSelection(row, flag);
-          } else {
-            this.$refs["table"].toggleRowSelection(row);
-          }
+          // 只传第一个参数，根据当前行选中状态来切换选中状态
+          // 传了第二个参数，根据第二个参数来切换选中状态
+          this.$refs["table"].toggleRowSelection(row, flag);
         }
         if (row["children"]) {
-          if (flag) {
-            this.toggleSelection(row["children"], flag);
-          } else {
-            this.toggleSelection(row["children"]);
-          }
+          this.toggleSelection(row["children"], flag);
         }
       });
     },
