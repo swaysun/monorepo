@@ -891,7 +891,7 @@ export default {
                 this.totalCount = 0;
               }
               if (data.msg) {
-                this.$message.error(data.msg);
+                this.$message.error(this.$t(data.msg));
               }
             }
 
