@@ -657,7 +657,12 @@ export default {
           }
         });
       } else {
+        // 全不选时，删除 multiSelectedArr 中当前页面的数据
+        const {list,multiSelectedArr} = this
+        const ws = new WeakSet(list);
+        let selectedArr = multiSelectedArr.filter(item => !ws.has(item))
         this.$refs["table"].clearSelection();
+        this.$emit("update:multiSelectedArr", selectedArr);
       }
     },
     toggleSelection(rows, flag) {
