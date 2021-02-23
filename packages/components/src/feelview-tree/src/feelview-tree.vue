@@ -11,7 +11,7 @@
       @click="toggleRowExpansion"
       type="text"
       :icon="foldStatu ? 'icon-ic_shouqi' : 'icon-ic_zhankai'"
-      >{{ foldStatu ? $t('statusLessAll') : $t('btn.unfoldAll') }}</el-button
+      >{{ foldStatu ? $t('btn.collapse') : $t('btn.expand') }}</el-button
     >
     <div class="filter-tree-box">
       <el-tree
