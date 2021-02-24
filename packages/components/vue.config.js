@@ -17,7 +17,7 @@ module.exports = {
     },
     externals: {
       'element-ui': 'element-ui',
-      exceljs: 'ExcelJS',
+      exceljs: 'exceljs',
     },
   },
   chainWebpack: (config) => {
