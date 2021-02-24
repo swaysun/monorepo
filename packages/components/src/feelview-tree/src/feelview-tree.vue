@@ -33,6 +33,7 @@
 
 <script>
 export default {
+  name: 'FeelviewTree',
   watch: {
     filterText(val) {
       this.$refs.tree.filter(val);

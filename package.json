@@ -16,7 +16,9 @@
     "pu": "lerna publish from-git --yes",
     "build": "lerna run build",
     "build:utils": "cd ./packages/utils && yarn run rollup -c",
-    "build:components": "cd ./packages/components && yarn build:all"
+    "build:components": "cd ./packages/components && yarn build:all",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -29,7 +31,8 @@
     "husky": "^4.3.6",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.3",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "vuepress": "^1.8.2"
   },
   "config": {
     "commitizen": {
@@ -45,6 +48,9 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "@grg/utils": "^0.0.11"
+    "@grg/utils": "^0.0.11",
+    "async-validator": "1.11.5",
+    "element-ui": "2.11.1",
+    "vue-highlightjs": "^1.3.3"
   }
 }
