@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.24](https://github.com/swaysun/monorepo/compare/@grg/components@0.22.23...@grg/components@0.22.24) (2021-02-24)
+
+**Note:** Version bump only for package @grg/components
+
 ## [0.22.23](https://github.com/swaysun/monorepo/compare/@grg/components@0.22.22...@grg/components@0.22.23) (2021-02-24)
 
 **Note:** Version bump only for package @grg/components
