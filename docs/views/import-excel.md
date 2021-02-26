@@ -22,7 +22,7 @@ export default {
 <template #demo-title>点击上传</template>
 <template #component-body>
     <el-row>
-        <import-excel :drag="false" action="http://10.1.231.69:8899/biz/import/batch/upload" :on-success="onSuccess" :on-error="onError">
+        <import-excel :drag="false" action="http://10.1.231.69:8899/biz/import/batch/upload" :data="{appType:'grgmsSys',bizNo:'10001'}" :on-success="onSuccess" :on-error="onError">
             <div slot="tip">只能上传 Excel 文件</div>
         </import-excel>
     </el-row>
@@ -34,7 +34,7 @@ export default {
 
 ```javascript
 <template>
-    <import-excel :drag="false" action="http://10.1.231.69:8899/biz/import/batch/upload" :on-success="onSuccess" :on-error="onError">
+    <import-excel :drag="false" action="http://10.1.231.69:8899/biz/import/batch/upload" :data="{appType:'grgmsSys',bizNo:'10001'}" :on-success="onSuccess" :on-error="onError">
             <div slot="tip">只能上传 Excel 文件</div>
         </import-excel>
 </template>
@@ -55,7 +55,7 @@ export default {
 <template #demo-title>拖拽上传</template>
 <template #component-body>
     <el-row>
-        <import-excel :drag="true" action="http://10.1.231.69:8899/biz/import/batch/upload" :on-success="onSuccess" :on-error="onError">
+        <import-excel :drag="true" action="http://10.1.231.69:8899/biz/import/batch/upload" :data="{appType:'grgmsSys',bizNo:'10001'}" :on-success="onSuccess" :on-error="onError">
         <div slot="tip">只能上传 Excel 文件</div>
         </import-excel>
     </el-row>
@@ -67,7 +67,7 @@ export default {
 
 ```javascript
 <template>
-    <import-excel :drag="true" action="http://10.1.231.69:8899/biz/import/batch/upload" :on-success="onSuccess" :on-error="onError">
+    <import-excel :drag="true" action="http://10.1.231.69:8899/biz/import/batch/upload" :data="{appType:'grgmsSys',bizNo:'10001'}" :on-success="onSuccess" :on-error="onError">
         <div slot="tip">只能上传 Excel 文件</div>
     </import-excel>
 </template>

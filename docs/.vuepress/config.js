@@ -1,5 +1,6 @@
 const path = require('path');
 module.exports = {
+  evergreen: true,
   base: '/',
   // 标题
   title: 'GRG Components',
@@ -31,6 +32,11 @@ module.exports = {
         title: '导入导出',
         collapsable: true,
         children: ['views/export-excel.md', 'views/import-excel.md'],
+      },
+      {
+        title: '业务组件',
+        collapsable: true,
+        children: ['views/business/grid.md'],
       },
     ],
   },
