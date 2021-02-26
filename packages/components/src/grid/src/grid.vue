@@ -29,7 +29,7 @@ function paginationRender(h) {
  * @return: Boolean 是｜否
  */
 function isFunction(obj) {
-  return Object.prototype.toString.call(obj) === "object Function";
+  return Object.prototype.toString.call(obj) === 'object Function';
 }
 
 /**
@@ -42,25 +42,25 @@ function tableCell(h, item, context) {
   let slotScope = {
     scopedSlots: {},
   };
-  if (item.headerRender && typeof item.headerRender === "function") {
+  if (item.headerRender && typeof item.headerRender === 'function') {
     slotScope.scopedSlots.header = (scope) =>
       item.headerRender.call(context, h, scope);
   }
 
-  if (item.render && typeof item.render === "function") {
+  if (item.render && typeof item.render === 'function') {
     slotScope.scopedSlots.default = (scope) =>
       item.render.call(context, h, scope);
     return (
       <el-table-column
         type={item.type}
-        width={item.width + "" || ""}
-        min-width={item.minWidth || ""}
-        prop={item.prop || ""}
+        width={item.width + '' || ''}
+        min-width={item.minWidth || ''}
+        prop={item.prop || ''}
         label={context.$t(item.label)}
         fixed={item.fixed || false}
         sortable={item.sortable || false}
-        header-align={item.headerAlign || "center"}
-        align={item.align || "center"}
+        header-align={item.headerAlign || 'center'}
+        align={item.align || 'center'}
         show-overflow-tooltip={item.tooltips || true}
         {...slotScope}
       ></el-table-column>
@@ -68,22 +68,22 @@ function tableCell(h, item, context) {
   }
   return (
     <el-table-column
-      width={item.width + "" || ""}
-      min-width={item.minWidth || ""}
+      width={item.width + '' || ''}
+      min-width={item.minWidth || ''}
       type={item.type}
-      prop={item.prop || ""}
+      prop={item.prop || ''}
       label={context.$t(item.label)}
       fixed={item.fixed || false}
       sortable={item.sortable || false}
       reserve-selection={item.reserve || false}
-      header-align={item.headerAlign || "center"}
-      align={item.align || "center"}
+      header-align={item.headerAlign || 'center'}
+      align={item.align || 'center'}
       show-overflow-tooltip={item.tooltips || true}
       {...slotScope}
     >
       {item.children
         ? item.children.map((childItem) => tableCell(h, childItem, context))
-        : ""}
+        : ''}
     </el-table-column>
   );
 }
@@ -123,7 +123,7 @@ function tableRender(h) {
         this.bccelldblclick(val);
       }}
       style="width: 100%;margin-top:20px;"
-      header-row-class-name={"grid-table-head"}
+      header-row-class-name={'grid-table-head'}
       class="grid-table"
     >
       {table}
@@ -137,7 +137,7 @@ function tableRender(h) {
  * @return: 表格template
  */
 function graphTableRender(h) {
-  const graph = this.$slots.graph || "";
+  const graph = this.$slots.graph || '';
   if (this.dataType === 1) {
     return graph;
   } else {
@@ -155,7 +155,7 @@ function graphTableRender(h) {
 function formRender(h) {
   const more = (
     <div
-      class={["more-select", this.moreStatus ? "down" : "up"]}
+      class={['more-select', this.moreStatus ? 'down' : 'up']}
       on-click={() => {
         this.moreSelect();
       }}
@@ -163,15 +163,15 @@ function formRender(h) {
       <span
         domPropsInnerHTML={
           this.moreStatus
-            ? String(this.$t("btn.expand"))
-            : String(this.$t("btn.collapse"))
+            ? String(this.$t('btn.expand'))
+            : String(this.$t('btn.collapse'))
         }
       ></span>
       <i
         class={
           this.moreStatus
-            ? "icon-ic_shuangjiantou-xia"
-            : "icon-ic_shuangjiantou-shang"
+            ? 'icon-ic_shuangjiantou-xia'
+            : 'icon-ic_shuangjiantou-shang'
         }
       ></i>
     </div>
@@ -182,12 +182,12 @@ function formRender(h) {
         ref="contentForm"
         id="contentForm"
         class={[
-          "grid-search-form-box",
-          "has-shadow",
-          this.moreStatus ? "grid-more" : "grid-less",
+          'grid-search-form-box',
+          'has-shadow',
+          this.moreStatus ? 'grid-more' : 'grid-less',
         ]}
         style={
-          this.moreStatus ? "height:" + this.singleLineFormHeight + "px" : ""
+          this.moreStatus ? 'height:' + this.singleLineFormHeight + 'px' : ''
         }
       >
         <div style="display:flex;" class="grid-search-form">
@@ -201,7 +201,7 @@ function formRender(h) {
               },
             }}
           >
-            {this.$slots.form ? this.$slots.form : ""}
+            {this.$slots.form ? this.$slots.form : ''}
           </el-form>
           <el-form style="min-width:224px;width:224px">
             <el-form-item>
@@ -212,7 +212,7 @@ function formRender(h) {
                   this.getDataList(1);
                 }}
               >
-                {this.$t("btn.search")}
+                {this.$t('btn.search')}
               </el-button>
               <el-button
                 size="mini"
@@ -220,21 +220,21 @@ function formRender(h) {
                   this.resetFormData();
                 }}
               >
-                {this.$t("btn.clear")}
+                {this.$t('btn.clear')}
               </el-button>
-              {this.$slots.formBtn ? this.$slots.formBtn : ""}
+              {this.$slots.formBtn ? this.$slots.formBtn : ''}
             </el-form-item>
           </el-form>
         </div>
-        {!!this.hasMoreBtn ? more : ""}
+        {!!this.hasMoreBtn ? more : ''}
       </div>
 
       <div
         class={[
-          "grid-search-form-box",
-          "has-shadow",
-          "grid-hide-form",
-          this.moreStatus ? "grid-more" : "grid-less",
+          'grid-search-form-box',
+          'has-shadow',
+          'grid-hide-form',
+          this.moreStatus ? 'grid-more' : 'grid-less',
         ]}
       >
         <div style="display:flex;width：100%" class="grid-search-form">
@@ -252,7 +252,7 @@ function formRender(h) {
                   this.getDataList(1);
                 }}
               >
-                {this.$t("btn.search")}
+                {this.$t('btn.search')}
               </el-button>
               <el-button
                 size="mini"
@@ -260,7 +260,7 @@ function formRender(h) {
                   this.resetFormData();
                 }}
               >
-                {this.$t("btn.clear")}
+                {this.$t('btn.clear')}
               </el-button>
             </el-form-item>
           </el-form>
@@ -270,20 +270,31 @@ function formRender(h) {
   );
 }
 
+
+/**
+ * @description: 渲染工具栏导入
+ * @param {type} h
+ * @return: 工具栏template
+ */
+function toolbarImportRender(h) {
+
+}
+
 /**
  * @description: 渲染工具栏
  * @param {type} h
  * @return: 工具栏template
  */
 function toolbarRender(h) {
-  let toolbar = "";
+  let toolbar = '';
+  const shouldHaveToolbar = this.layout.includes('toolbar')
   if (this.hasGraphTable) {
     toolbar = this.$slots.toolbar ? (
       <div class="graph-toolbar">
         <el-button-group class="data-type">
           <el-button
             size="mini"
-            type={this.dataType === 0 ? "primary" : ""}
+            type={this.dataType === 0 ? 'primary' : ''}
             icon="el-icon-s-grid"
             on-click={() => {
               this.changeDatType(0);
@@ -291,7 +302,7 @@ function toolbarRender(h) {
           ></el-button>
           <el-button
             size="mini"
-            type={this.dataType === 1 ? "primary" : ""}
+            type={this.dataType === 1 ? 'primary' : ''}
             icon="el-icon-s-data"
             on-click={() => {
               this.changeDatType(1);
@@ -304,7 +315,7 @@ function toolbarRender(h) {
       <el-button-group class="data-type">
         <el-button
           size="mini"
-          type={this.dataType == 0 ? "primary" : ""}
+          type={this.dataType == 0 ? 'primary' : ''}
           icon="el-icon-s-grid"
           on-click={() => {
             this.changeDatType(0);
@@ -312,7 +323,7 @@ function toolbarRender(h) {
         ></el-button>
         <el-button
           size="mini"
-          type={this.dataType == 1 ? "primary" : ""}
+          type={this.dataType == 1 ? 'primary' : ''}
           icon="el-icon-s-data"
           on-click={() => {
             this.changeDatType(1);
@@ -321,9 +332,69 @@ function toolbarRender(h) {
       </el-button-group>
     );
   } else {
-    toolbar = this.$slots.toolbar ? <div>{this.$slots.toolbar}</div> : "";
+    toolbar = this.$slots.toolbar || shouldHaveToolbar
+      ? [
+          this.$slots.toolbar,
+          this.importFile ? (
+            <el-upload
+              action={this.importAction}
+              limi={1}
+              showFileList={false}
+              data={{ appType: this.appType, bizNo: this.importBizNo }}
+              accept={this.importAccept}
+              {...{
+                props: {
+                  'before-upload': this.onBeforeUpload,
+                  'on-success': this.onImportSuccess,
+                  'on-error': this.onImportError,
+                },
+              }}
+            >
+              <el-button loading={this.importLoading} icon="icon-ic_daoru">
+                {this.$t('btn.import')}
+              </el-button>
+            </el-upload>
+          ) : (
+            ''
+          ),
+          this.exportSelection || this.exportAll ? (
+            <el-dropdown
+              on-command={(cmd) => {
+                this.executeCommand(cmd);
+              }}
+            >
+              <el-button>
+                {this.$t('btn.more')}
+                <i class="el-icon-arrow-down el-icon--right"></i>
+              </el-button>
+
+              <el-dropdown-menu slot="dropdown">
+                {this.exportSelection ? (
+                  <el-dropdown-item
+                    command="DownloadSelected"
+                    disabled={!this.hasSelectedRow}
+                  >
+                    {this.$t('btn.exportSelection')}
+                  </el-dropdown-item>
+                ) : (
+                  ''
+                )}
+                {this.exportAll ? (
+                  <el-dropdown-item command="DownloadFromServer">
+                    {this.$t('btn.exportAll')}
+                  </el-dropdown-item>
+                ) : (
+                  ''
+                )}
+              </el-dropdown-menu>
+            </el-dropdown>
+          ) : (
+            ''
+          ),
+        ]
+      : '';
   }
-  const toolbox = <div class={"grid-tool-box"}>{toolbar}</div>;
+  const toolbox = <div class={'grid-tool-box'}>{toolbar}</div>;
   return toolbox;
 }
 
@@ -334,7 +405,7 @@ function toolbarRender(h) {
  */
 function monitorRender(h) {
   const minitorSlot = this.$slots.monitor;
-  let monitor = this.$slots.monitor ? minitorSlot : "";
+  let monitor = this.$slots.monitor ? minitorSlot : '';
   return monitor;
 }
 
@@ -345,7 +416,7 @@ function monitorRender(h) {
  */
 function treeRender(h) {
   const tree = (
-    <div class={["grid-lefttree", this.showTree ? "" : "undisplay"]}>
+    <div class={['grid-lefttree', this.showTree ? '' : 'undisplay']}>
       <feelview-tree
         ref="feeltree"
         on-selectNode={(e) => {
@@ -360,26 +431,26 @@ function treeRender(h) {
   return tree;
 }
 
-import FeelviewTree from "./feelview-tree.vue";
-
+import FeelviewTree from './feelview-tree.vue';
+import exportExcel from '../../export-excel/index';
 export default {
-  name: "grid",
+  name: 'grid',
   components: { FeelviewTree },
   mixins: [],
   props: {
     layout: {
       type: Array,
       default() {
-        return ["form", "toolbar", "table", "pagination"];
+        return ['form', 'toolbar', 'table', 'pagination'];
       },
     },
     methods: {
       type: String,
-      default: "get",
+      default: 'get',
     },
     apiType: {
       type: String,
-      default: "",
+      default: '',
     },
     api: {
       type: String,
@@ -395,7 +466,7 @@ export default {
     },
     rowKey: {
       type: String,
-      default: "id",
+      default: 'id',
     },
     autoGetData: {
       type: Boolean,
@@ -418,7 +489,7 @@ export default {
     },
     returnDataKey: {
       type: String,
-      default: "data",
+      default: 'data',
     },
     resetDataFormType: {
       type: String,
@@ -453,10 +524,46 @@ export default {
     getChartData: {
       type: Function,
     },
+    importFile: {
+      // 是否显示导入按钮
+      type: Boolean,
+    },
+    importAction: {
+      type: String,
+    },
+    appType: {
+      // 导入的应用类型
+      type: String,
+    },
+    importBizNo: {
+      // 导入的业务编号
+      type: String,
+    },
+    importAccept: {
+      //允许导入的文件类型
+      type: String,
+      default: '.xlsx,.xls',
+    },
+    exportSelection: {
+      // 是否显示导出勾选数据按钮
+      type: Boolean,
+    },
+    exportAll: {
+      // 是否显示导出全部数据按钮
+      type: Boolean,
+    },
+    exportTitle: {
+      // 导出 Excel 第一行标题
+      type: String,
+    },
+    exportFileName: {
+      // 导出 Excel 文件名，带文件名后缀
+      type: String,
+    },
   },
   data() {
     return {
-      originForm: "",
+      originForm: '',
       pageIndex: 1, // 分页参数-页索引
       pageSize: 10, // 分页参数-每页数
       totalCount: 0, // 分页参数-总数
@@ -465,7 +572,7 @@ export default {
       moreStatus: true, // 表单查询展开
       hasMoreBtn: true, // 是否有展开按钮
       foldStatu: false, // 展开收缩状态
-      singleLineFormHeight: "", // 单行表单高度，用于计算要不要显示展开按钮
+      singleLineFormHeight: '', // 单行表单高度，用于计算要不要显示展开按钮
       tableH: undefined,
       contentFormH: 0,
       contentH: 0,
@@ -474,6 +581,7 @@ export default {
       isCheckedAll: false, // 全选状态
       dataListSelections: [], // 复选选中数据 multiSelectedArr !== dataListSelections multiSelectedArr包含dataListSelections
       cancleArr: [], // multiSelectedKeysArray被取消的
+      importLoading: false,
     };
   },
   computed: {
@@ -508,7 +616,7 @@ export default {
         return this.$store.state.common.isShowGridTree;
       },
       set(val) {
-        this.$store.commit("common/updateShowGridTree", val);
+        this.$store.commit('common/updateShowGridTree', val);
       },
     },
     hasPagination() {
@@ -516,15 +624,18 @@ export default {
         // 图表暂时只支持分页的
         return true;
       } else {
-        return this.layout.indexOf("pagination") >= 0;
+        return this.layout.indexOf('pagination') >= 0;
       }
     },
     hasGraphTable() {
-      if (this.layout.indexOf("graphTable") >= 0) {
+      if (this.layout.indexOf('graphTable') >= 0) {
         return true;
       } else {
         return false;
       }
+    },
+    hasSelectedRow() {
+      return !!(this.multiSelectedArr && this.multiSelectedArr.length);
     },
   },
   created() {
@@ -538,11 +649,11 @@ export default {
     }
     let _this = this;
     this.calcTableH();
-    if (_this.layout.indexOf("form") !== -1) {
+    if (_this.layout.indexOf('form') !== -1) {
       // 有表单才需要算按钮
       _this.calcing();
       window.addEventListener(
-        "resize",
+        'resize',
         _this.throttling(_this.calcing, 500, true)
       );
     }
@@ -593,7 +704,7 @@ export default {
           this.tableH = this.tableFixedHeight;
           return;
         }
-        if (typeof this.$refs.table !== "undefined") {
+        if (typeof this.$refs.table !== 'undefined') {
           const tableWraper = window.getComputedStyle(this.$refs.table.$el)
             .height;
           this.tableH = tableWraper;
@@ -626,14 +737,14 @@ export default {
     },
     // 双击进详情操作 emit
     bccelldblclick(row) {
-      this.$emit("dbClickCell", row);
+      this.$emit('dbClickCell', row);
     },
     // 点击行选中
     handleClickTableRow(row, column) {
       if (this.isDefaultTableColClick) {
         this.$refs.table.toggleRowSelection(row);
       } else {
-        this.$emit("tableRowClick", row);
+        this.$emit('tableRowClick', row);
       }
     },
     // 全选
@@ -653,16 +764,16 @@ export default {
       if (this.isCheckedAll) {
         selectedData.forEach((subRow) => {
           if (subRow.children) {
-            this.toggleSelection(subRow["children"]);
+            this.toggleSelection(subRow['children']);
           }
         });
       } else {
         // 全不选时，删除 multiSelectedArr 中当前页面的数据
-        const {list,multiSelectedArr} = this
+        const { list, multiSelectedArr } = this;
         const ws = new WeakSet(list);
-        let selectedArr = multiSelectedArr.filter(item => !ws.has(item))
-        this.$refs["table"].clearSelection();
-        this.$emit("update:multiSelectedArr", selectedArr);
+        let selectedArr = multiSelectedArr.filter((item) => !ws.has(item));
+        this.$refs['table'].clearSelection();
+        this.$emit('update:multiSelectedArr', selectedArr);
       }
     },
     toggleSelection(rows, flag) {
@@ -673,10 +784,10 @@ export default {
         if (!this.rowHasSelected(row)) {
           // 只传第一个参数，根据当前行选中状态来切换选中状态
           // 传了第二个参数，根据第二个参数来切换选中状态
-          this.$refs["table"].toggleRowSelection(row, flag);
+          this.$refs['table'].toggleRowSelection(row, flag);
         }
-        if (row["children"]) {
-          this.toggleSelection(row["children"], flag);
+        if (row['children']) {
+          this.toggleSelection(row['children'], flag);
         }
       });
     },
@@ -687,7 +798,7 @@ export default {
     // 左侧机构树展开收缩
     showTreeHandle() {
       this.showTree = !this.showTree;
-      this.$emit("treeToggle", this.showTree);
+      this.$emit('treeToggle', this.showTree);
     },
     // 表格中树展开收缩
     toggleRowExpansion(isExpansion) {
@@ -703,9 +814,9 @@ export default {
     },
     // 重置
     resetFormData() {
-      this.$emit("update:model", JSON.parse(this.originForm));
+      this.$emit('update:model', JSON.parse(this.originForm));
       // this.selectArrayCopy = []
-      this.$emit("update:multiSelectedArr", []);
+      this.$emit('update:multiSelectedArr', []);
       this.closeAndclearSelection();
       setTimeout(() => {
         if (this.hasTree) {
@@ -768,18 +879,18 @@ export default {
         }
       }
       if (this.multiSelectedArr) {
-        this.$emit("update:multiSelectedArr", this.dataListSelections);
+        this.$emit('update:multiSelectedArr', this.dataListSelections);
       }
     },
     // select-change
     selectionChangeHandle(val) {
       this.dataListSelections = val;
       if (this.singleSelect) {
-        this.$emit("update:multiSelectedArr", this.dataListSelections);
+        this.$emit('update:multiSelectedArr', this.dataListSelections);
         return;
       }
       let arr = [...this.dataListSelections, ...this.legacyListSelections];
-      this.$emit("update:multiSelectedArr", arr);
+      this.$emit('update:multiSelectedArr', arr);
     },
     // 获取多选项
     getMulSelection() {
@@ -793,7 +904,7 @@ export default {
       }
       if (needRefresh) {
         this.pageIndex = 1;
-        this.$emit("update:multiSelectedArr", []);
+        this.$emit('update:multiSelectedArr', []);
         // this.selectArrayCopy = []
         this.closeAndclearSelection();
       }
@@ -813,22 +924,22 @@ export default {
       }
       let requestUrl = this.$http.adornUrl(this.api);
       switch (this.apiType) {
-        case "auth":
+        case 'auth':
           requestUrl = this.$http.adornAuthUrl(this.api);
           break;
-        case "plat":
+        case 'plat':
           requestUrl = this.$http.adornPlatformUrl(this.api);
           break;
-        case "console":
+        case 'console':
           requestUrl = this.$http.adornConsoleUrl(this.api);
           break;
-        case "scheduler":
+        case 'scheduler':
           requestUrl = this.$http.adornSchedulerUrl(this.api);
           break;
-        case "file":
+        case 'file':
           requestUrl = this.$http.adornFileUrl(this.api);
           break;
-        case "itx":
+        case 'itx':
           requestUrl = this.$http.adornItxUrl(this.api);
           break;
         default:
@@ -839,12 +950,12 @@ export default {
         url: requestUrl,
         method: this.methods,
       };
-      if (this.methods === "post") {
-        this.$set(requestParams, "data", this.$http.adornData(params, true));
+      if (this.methods === 'post') {
+        this.$set(requestParams, 'data', this.$http.adornData(params, true));
       } else {
         this.$set(
           requestParams,
-          "params",
+          'params',
           this.$http.adornParams(params, true)
         );
       }
@@ -855,7 +966,7 @@ export default {
           if (this.requestCallback) {
             this.requestCallback(this, data); // 不用默认的数据处理情况
             this.$nextTick(() => {
-              if (typeof this.$refs.table !== "undefined") {
+              if (typeof this.$refs.table !== 'undefined') {
                 this.$refs.table.doLayout();
                 setTimeout(() => {
                   this.setSelectArray();
@@ -895,18 +1006,19 @@ export default {
             }
 
             if (this.hasGraphTable) {
-              this.$emit("listLoaded", data);
+              this.$emit('listLoaded', data);
               //   关闭切换机构后切换会列表界面
               //   this.dataType = 0;
             } else {
-              this.$emit("listLoaded");
+              this.$emit('listLoaded');
             }
           }
           this.dataListLoading = false;
         })
         .catch((error) => {
           if (
-            error.message && error.message.indexOf(
+            error.message &&
+            error.message.indexOf(
               `Cannot read property 'data' of undefined`
             ) === -1
           ) {
@@ -922,20 +1034,189 @@ export default {
         if (this.dataType === 0) {
           this.getDataList(0);
         } else {
-          this.$emit("changeGraph");
+          this.$emit('changeGraph');
         }
       }
+    },
+    //
+    onBeforeUpload(file) {
+      const { importAccept: accept } = this;
+      if (accept === '*' || accept === '') {
+        this.importLoading = true;
+        return true;
+      }
+      const acceptList = accept.split(',');
+      // ios 系统无法获取到文件的type类型
+      const fileType = file.name.slice(file.name.lastIndexOf('.'));
+      const flag = acceptList.includes(fileType);
+      this.importLoading = flag;
+      return flag;
+    },
+    // 导入成功
+    onImportSuccess(response, file, fileList) {
+      const { code, msg } = response || {};
+      if (code === 0) {
+        this.$message.success(this.$t('msg.success') || msg);
+        this.$emit('importSuccess', response, file, fileList);
+        this.importLoading = false;
+        console.log('response, file, fileList', response, file, fileList);
+      } else {
+        this.onImportError({ type: 'error', code, msg }, file, fileList);
+      }
+    },
+    // 导入失败
+    onImportError(err, file, fileList) {
+      let { type, code, msg } = {
+        type: 'error',
+        code: -1,
+        msg: 'msg.failure',
+        ...(err || {}),
+      };
+      this.$message.error(this.$t(msg) || msg);
+      this.$emit('importError', { type, code, msg }, file, fileList);
+      this.importLoading = false;
+      console.log('err, file, fileList', { type, code, msg }, file, fileList);
+    },
+    // 更多按钮事件
+    executeCommand(cmd) {
+      switch (cmd) {
+        case 'DownloadSelected':
+          this.downloadSelectedRows();
+          break;
+        case 'DownloadFromServer':
+          this.downloadFromServerRows();
+          break;
+        default:
+          break;
+      }
+    },
+    downloadRows(rows) {
+      const { columns: thisColumns, exportTitle, exportFileName } = this;
+      console.log('exportTitle', exportTitle);
+      const columns = thisColumns
+        .filter((item) => item.prop !== undefined) // 排除掉 checkbox 列和操作列
+        .map(({ label, prop }) => ({
+          header: this.$t(label),
+          key: prop,
+        }));
+      console.log('thisColumns', thisColumns);
+      const translateFnMap = thisColumns.reduce(
+        (ret, { prop, translate, render }) => {
+          return {
+            ...ret,
+            [prop]: (value) => {
+              if (translate) {
+                return translate(value);
+              } else {
+                try {
+                  return render.call(this, null, {
+                    row: { [prop]: value },
+                  });
+                } catch (error) {
+                  return value;
+                }
+              }
+            },
+          };
+        },
+        {}
+      );
+      console.log('translateFnMap', translateFnMap);
+      exportExcel({
+        title: exportTitle || 'Grid',
+        columns,
+        rows: rows.map((item, index) => {
+          return Object.keys(item).reduce((ret, prop) => {
+            ret[prop] = translateFnMap[prop]
+              ? translateFnMap[prop](item[prop])
+              : item[prop];
+            return ret;
+          }, {});
+        }),
+        fileName: exportFileName || 'Grid.xlsx',
+      });
+    },
+    downloadSelectedRows() {
+      return this.downloadRows(this.multiSelectedArr);
+    },
+    downloadFromServerRows() {
+      let params = {};
+      if (this.hasPagination) {
+        params = {
+          page: 1,
+          limit: 500,
+          current: 1,
+          size: 500,
+          ...this.model,
+        };
+      } else {
+        params = {
+          ...this.model,
+        };
+      }
+      let requestUrl = this.$http.adornUrl(this.api);
+      switch (this.apiType) {
+        case 'auth':
+          requestUrl = this.$http.adornAuthUrl(this.api);
+          break;
+        case 'plat':
+          requestUrl = this.$http.adornPlatformUrl(this.api);
+          break;
+        case 'console':
+          requestUrl = this.$http.adornConsoleUrl(this.api);
+          break;
+        case 'scheduler':
+          requestUrl = this.$http.adornSchedulerUrl(this.api);
+          break;
+        case 'file':
+          requestUrl = this.$http.adornFileUrl(this.api);
+          break;
+        case 'itx':
+          requestUrl = this.$http.adornItxUrl(this.api);
+          break;
+        default:
+          requestUrl = this.api;
+          break;
+      }
+      const requestParams = {
+        url: requestUrl,
+        method: this.methods,
+      };
+      if (this.methods === 'post') {
+        this.$set(requestParams, 'data', this.$http.adornData(params, true));
+      } else {
+        this.$set(
+          requestParams,
+          'params',
+          this.$http.adornParams(params, true)
+        );
+      }
+      this.$http(requestParams)
+        .then(({ data }) => {
+          console.log('aaaaaadata', data);
+          let list = [];
+          if (this.hasPagination) {
+            list =
+              data[this.returnDataKey].list ||
+              data[this.returnDataKey].records ||
+              [];
+          } else {
+            list = data[this.returnDataKey] || [];
+          }
+          this.downloadRows(list);
+        })
+        .catch((error) => {});
     },
     // 切换机构
     gridselectNode(e) {
       this.model.orgCode = e.orgCode;
       this.model.orgPath = e.orgPath;
       this.model.orgName =
-        (this.$store.state.systemSetting.locale || "zh") === "zh"
+        (this.$store.state.systemSetting.locale || 'zh') === 'zh'
           ? e.label
           : e.deptI18nCode;
       // 切换机构 重置查询参
-      this.$emit("update:model", this.model);
+      this.$emit('update:model', this.model);
       setTimeout(() => {
         // 换机构 要重置必要参数
         this.getDataList(1);
@@ -946,11 +1227,11 @@ export default {
         this.model.orgCode = e.orgCode;
         this.model.orgPath = e.orgPath;
         this.model.orgName =
-          (this.$store.state.systemSetting.locale || "zh") === "zh"
+          (this.$store.state.systemSetting.locale || 'zh') === 'zh'
             ? e.label
             : e.deptI18nCode;
         // 切换机构不重置查询参
-        this.$emit("update:model", this.model);
+        this.$emit('update:model', this.model);
         setTimeout(() => {
           this.getDataList(1);
         });
@@ -959,21 +1240,21 @@ export default {
     // 加载树后自动触发并传递顶级数据，需要
     gridgetTopDept(e) {
       let originForm = JSON.parse(this.originForm);
-      if (this.resetDataFormType === "init") {
-        originForm["orgCode"] = "";
-        originForm["orgPath"] = "";
-        originForm["orgName"] = "";
+      if (this.resetDataFormType === 'init') {
+        originForm['orgCode'] = '';
+        originForm['orgPath'] = '';
+        originForm['orgName'] = '';
       } else {
-        originForm["orgCode"] = e.orgCode || "";
-        originForm["orgPath"] = e.orgPath || "";
-        originForm["orgName"] =
-          (this.$store.state.systemSetting.locale || "zh") === "zh"
+        originForm['orgCode'] = e.orgCode || '';
+        originForm['orgPath'] = e.orgPath || '';
+        originForm['orgName'] =
+          (this.$store.state.systemSetting.locale || 'zh') === 'zh'
             ? e.label
             : e.deptI18nCode;
       }
       this.originForm = JSON.stringify(originForm);
 
-      this.$emit("update:model", JSON.parse(this.originForm));
+      this.$emit('update:model', JSON.parse(this.originForm));
       setTimeout(() => {
         if (this.treeAutoGetData) {
           this.getDataList(1);
@@ -987,7 +1268,7 @@ export default {
             this.$refs.table.toggleRowSelection(item, true);
             return;
           } else if (
-            typeof item.children !== "undefined" &&
+            typeof item.children !== 'undefined' &&
             item.children !== null &&
             item.children.length > 0
           ) {
@@ -1006,7 +1287,7 @@ export default {
     closeAndclearSelection() {
       this.$nextTick(() => {
         this.clearCancleArr = [];
-        if (typeof this.$refs.table !== "undefined") {
+        if (typeof this.$refs.table !== 'undefined') {
           this.$refs.table.clearSelection();
           this.pageIndex = 1;
           this.pageSize = 10;
@@ -1061,14 +1342,14 @@ export default {
     };
     // 页面渲染是原则上按照layout数组顺序的，但是实际考虑from放在首个
     const l = this.layout.map((item) => TEMPLATE_MAP[item]);
-    const formIndex = this.layout.indexOf("form");
+    const formIndex = this.layout.indexOf('form');
     if (formIndex === -1) {
       // 没有查询条件
       return (
         <div
           id="s-grid"
-          style={"height:" + this.gridFixedHeight + "px"}
-          class={["grid-box", this.hasBoxShadow ? "hasShadow" : ""]}
+          style={'height:' + this.gridFixedHeight + 'px'}
+          class={['grid-box', this.hasBoxShadow ? 'hasShadow' : '']}
         >
           {this.height}
 
@@ -1076,24 +1357,24 @@ export default {
             <div
               class={[
                 this.showTree
-                  ? "icon-ic_shuangjiantou-zuo show-tree-btn"
-                  : "icon-ic_shuxingzujian show-tree-btn",
+                  ? 'icon-ic_shuangjiantou-zuo show-tree-btn'
+                  : 'icon-ic_shuxingzujian show-tree-btn',
               ]}
               on-click={() => {
                 this.showTreeHandle();
               }}
             ></div>
           ) : (
-            ""
+            ''
           )}
-          {this.hasTree ? treeRender.call(this, h) : ""}
+          {this.hasTree ? treeRender.call(this, h) : ''}
           <div
             class={[
-              "grid-content",
-              this.hasTree && this.showTree ? "hastree" : "notree",
+              'grid-content',
+              this.hasTree && this.showTree ? 'hastree' : 'notree',
             ]}
           >
-            {" "}
+            {' '}
             {l}
           </div>
         </div>
@@ -1103,8 +1384,8 @@ export default {
       return (
         <div
           id="s-grid"
-          style={"height:" + this.gridFixedHeight + "px"}
-          class={["grid-box", this.hasBoxShadow ? "hasShadow" : ""]}
+          style={'height:' + this.gridFixedHeight + 'px'}
+          class={['grid-box', this.hasBoxShadow ? 'hasShadow' : '']}
         >
           {this.height}
 
@@ -1112,21 +1393,21 @@ export default {
             <div
               class={
                 this.showTree
-                  ? "icon-ic_shuangjiantou-zuo show-tree-btn"
-                  : "icon-ic_shuxingzujian show-tree-btn"
+                  ? 'icon-ic_shuangjiantou-zuo show-tree-btn'
+                  : 'icon-ic_shuxingzujian show-tree-btn'
               }
               on-click={() => {
                 this.showTreeHandle();
               }}
             ></div>
           ) : (
-            ""
+            ''
           )}
-          {this.hasTree ? treeRender.call(this, h) : ""}
+          {this.hasTree ? treeRender.call(this, h) : ''}
           <div
             class={[
-              "grid-content",
-              this.hasTree && this.showTree ? "hastree" : "notree",
+              'grid-content',
+              this.hasTree && this.showTree ? 'hastree' : 'notree',
             ]}
             id="boxContent"
           >
@@ -1141,29 +1422,29 @@ export default {
       return (
         <div
           id="s-grid"
-          style={"height:" + this.gridFixedHeight + "px"}
-          class={["grid-box", this.hasBoxShadow ? "hasShadow" : ""]}
+          style={'height:' + this.gridFixedHeight + 'px'}
+          class={['grid-box', this.hasBoxShadow ? 'hasShadow' : '']}
         >
           {this.height}
           {this.hasTree ? (
             <div
               class={
                 this.showTree
-                  ? "icon-ic_shuangjiantou-zuo show-tree-btn"
-                  : "icon-ic_shuxingzujian show-tree-btn"
+                  ? 'icon-ic_shuangjiantou-zuo show-tree-btn'
+                  : 'icon-ic_shuxingzujian show-tree-btn'
               }
               on-click={() => {
                 this.showTreeHandle();
               }}
             ></div>
           ) : (
-            ""
+            ''
           )}
-          {this.hasTree ? treeRender.call(this, h) : ""}
+          {this.hasTree ? treeRender.call(this, h) : ''}
           <div
             class={[
-              "grid-content",
-              this.hasTree && this.showTree ? "hastree" : "notree",
+              'grid-content',
+              this.hasTree && this.showTree ? 'hastree' : 'notree',
             ]}
           >
             {temp}
@@ -1239,7 +1520,7 @@ export default {
 .form-content {
   height: auto;
   position: relative;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   padding-bottom: 5px;
 }
 .form-content::before {
@@ -1269,6 +1550,12 @@ export default {
   border: none;
   flex: 1;
 }
+
+.grid-tool-box {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px 0 15px;
+}
 /* 按钮样式 */
 
 .grid-content .grid-tool-box ::v-deep .el-upload .el-button,
@@ -1283,7 +1570,7 @@ export default {
   background: transparent;
   border-color: #1d84ef;
   /* border-radius: 3px; */
-  margin-bottom: 20px;
+  margin-top: 5px;
   margin-right: 12px;
 }
 @media screen and (max-width: 1540px) {
@@ -1301,7 +1588,7 @@ export default {
 }
 
 .grid-content .grid-tool-box .el-button + .el-button {
-  margin: 0 12px 20px 0;
+  margin: 5px 12px 0 0;
 }
 .grid-content .grid-tool-box ::v-deep .el-upload .el-button.el-button--primary,
 .grid-content .grid-tool-box .el-button.el-button--primary {
