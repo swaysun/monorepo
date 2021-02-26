@@ -35,12 +35,23 @@ export default function exportExcel(source) {
     fileName,
     columns,
     rows,
+    title,
     type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   } = source;
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet('Sheet1');
   sheet.columns = columns;
   sheet.addRows(rows);
+  if (title) {
+    // title 标题：第一行，合并单元格
+    sheet.insertRow(1, [title]);
+    sheet.mergeCells(1, 1, 1, columns.length, '111');
+    sheet.getCell(1, 1).alignment = {
+      vertical: 'middle',
+      horizontal: 'center',
+    };
+  }
+
   // 导出
   return workbook.xlsx.writeBuffer().then((data) => {
     return download(new Blob([data], { type }), fileName);
