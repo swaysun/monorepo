@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/swaysun/monorepo/compare/@grg/components@0.22.24...@grg/components@0.23.0) (2021-02-26)
+
+### Features
+
+- **docs:** 文档 ([1292c3f](https://github.com/swaysun/monorepo/commit/1292c3f1d0d955d5d2a3ed19b7ea853362eeae54))
+- **export-excel:** 增加导出 Excel 标题 ([d2c19c3](https://github.com/swaysun/monorepo/commit/d2c19c3835ac00e484aafe61b2f3273dccde9259))
+- **gridgrid:** 增加导出导出功能、组件注册参数 ([08e1219](https://github.com/swaysun/monorepo/commit/08e1219db95767b85b69479a5412fb58f0ad4ddf))
+- **import-excel:** 增加上传数据 ([6378126](https://github.com/swaysun/monorepo/commit/6378126ffd88fa77a67f1534f646a06c2abfd68a))
+
 ## [0.22.24](https://github.com/swaysun/monorepo/compare/@grg/components@0.22.23...@grg/components@0.22.24) (2021-02-24)
 
 **Note:** Version bump only for package @grg/components
