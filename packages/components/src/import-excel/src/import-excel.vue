@@ -6,6 +6,7 @@
     multiple
     :file-list="innerFileList"
     :accept="accept"
+    :data="data"
     v-bind="$attrs"
   >
     <template v-if="drag">
@@ -53,6 +54,13 @@ export default {
       type: Array,
       default() {
         return [];
+      },
+    },
+    data: {
+      type: Object,
+      required: true,
+      validator(value) {
+        return !!value.appType && !!value.bizNo;
       },
     },
   },
