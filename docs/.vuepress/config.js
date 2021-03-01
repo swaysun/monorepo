@@ -12,16 +12,11 @@ module.exports = {
   port: 8080,
   //主题配置
   themeConfig: {
-    // logo
-    logo: '/logo1.png',
-    // search
-    search: false,
-    // 顶部导航栏
-    nav: [
-      { text: '首页', link: '/' },
-      { text: '组件', link: 'views/guide/install.html' },
-      // { text: 'Gitlab', link: ''}
-    ],
+    search: true,
+    lastUpdated: 'Last Updated',
+    nextLinks: false,
+    prevLinks: false,
+    smoothScroll: true,
     sidebar: [
       {
         title: '开发指南',
