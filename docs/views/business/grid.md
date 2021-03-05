@@ -54,6 +54,16 @@ title: 'Grid'
 |   singleSelect    |          |       checkbox 是否为单选        |    Boolean    |                           true\|false                            |                   false                    |                                                                                                   |
 |  treeAutoGetData  |          | 左侧树是否自动触发 grid 查询请求 |    Boolean    |                          true \| false                           |                    true                    |                                                                                                   |
 |   hasBoxShadow    |          |   grid 组件外是否 有 boxshadow   |    Boolean    |                          true \| false                           |                    true                    |                                                                                                   |
+|    importFile     |          |           是否启用导入           |    Boolean    |                          true \| false                           |                   false                    |                                                                                                   |
+|   importAction    |   true   |           导入请求地址           |    String     |                                                                  |                                            |                                                                                                   |
+|      appType      |          |             应用类型             |    String     |                                                                  |                                            |                                       启用导入后，需要传入                                        |
+|    importBizNo    |          |             业务编号             |    String     |                                                                  |                                            |                                       启用导入后，需要传入                                        |
+|   importAccept    |          |        允许导入的文件类型        |    String     |                                                                  |                ".xlsx,.xls"                |                                                                                                   |
+|  exportSelection  |          |       启用导出勾选数据按钮       |    Boolean    |                          true \| false                           |                   false                    |                                                                                                   |
+|     exportAll     |          |       启用导出全部数据按钮       |    Boolean    |                          true \| false                           |                   false                    |                                                                                                   |
+|    exportTitle    |          |         导出 Excel 标题          |    String     |                                                                  |                    Grid                    |                                                                                                   |
+|  exportFileName   |          | 导出 Excel 文件名，带文件名后缀  |    String     |                                                                  |                 Grid.xlsx                  |                                                                                                   |
+|       参数        | 是否必填 |               说明               |     类型      |                              可选值                              |                   默认值                   |                                               备注                                                |
 
 ### columns 表格列配置
 
@@ -90,5 +100,12 @@ title: 'Grid'
 | toggleRowExpansion | 树形结构展开收缩                          |      |
 | toggleAllSelection | 表格数据全选取消全选兼容树形数据          |      |
 | toggleRowExpansion | 表格中树展开收缩                          |      |
+
+### Events
+
+|   事件名称    |   说明   |         回调参数         |
+| :-----------: | :------: | :----------------------: |
+| importSuccess | 导入成功 | response, file, fileList |
+|  importError  | 导入失败 | response, file, fileList |
 
 </ClientOnly>
