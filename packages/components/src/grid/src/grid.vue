@@ -270,15 +270,12 @@ function formRender(h) {
   );
 }
 
-
 /**
  * @description: 渲染工具栏导入
  * @param {type} h
  * @return: 工具栏template
  */
-function toolbarImportRender(h) {
-
-}
+function toolbarImportRender(h) {}
 
 /**
  * @description: 渲染工具栏
@@ -287,7 +284,7 @@ function toolbarImportRender(h) {
  */
 function toolbarRender(h) {
   let toolbar = '';
-  const shouldHaveToolbar = this.layout.includes('toolbar')
+  const shouldHaveToolbar = this.layout.includes('toolbar');
   if (this.hasGraphTable) {
     toolbar = this.$slots.toolbar ? (
       <div class="graph-toolbar">
@@ -332,67 +329,68 @@ function toolbarRender(h) {
       </el-button-group>
     );
   } else {
-    toolbar = this.$slots.toolbar || shouldHaveToolbar
-      ? [
-          this.$slots.toolbar,
-          this.importFile ? (
-            <el-upload
-              action={this.importAction}
-              limi={1}
-              showFileList={false}
-              data={{ appType: this.appType, bizNo: this.importBizNo }}
-              accept={this.importAccept}
-              {...{
-                props: {
-                  'before-upload': this.onBeforeUpload,
-                  'on-success': this.onImportSuccess,
-                  'on-error': this.onImportError,
-                },
-              }}
-            >
-              <el-button loading={this.importLoading} icon="icon-ic_daoru">
-                {this.$t('btn.import')}
-              </el-button>
-            </el-upload>
-          ) : (
-            ''
-          ),
-          this.exportSelection || this.exportAll ? (
-            <el-dropdown
-              on-command={(cmd) => {
-                this.executeCommand(cmd);
-              }}
-            >
-              <el-button>
-                {this.$t('btn.more')}
-                <i class="el-icon-arrow-down el-icon--right"></i>
-              </el-button>
+    toolbar =
+      this.$slots.toolbar || shouldHaveToolbar
+        ? [
+            this.$slots.toolbar,
+            this.importFile ? (
+              <el-upload
+                action={this.importAction}
+                limi={1}
+                showFileList={false}
+                data={{ appType: this.appType, bizNo: this.importBizNo }}
+                accept={this.importAccept}
+                {...{
+                  props: {
+                    'before-upload': this.onBeforeUpload,
+                    'on-success': this.onImportSuccess,
+                    'on-error': this.onImportError,
+                  },
+                }}
+              >
+                <el-button loading={this.importLoading} icon="icon-ic_daoru">
+                  {this.$t('btn.import')}
+                </el-button>
+              </el-upload>
+            ) : (
+              ''
+            ),
+            this.exportSelection || this.exportAll ? (
+              <el-dropdown
+                on-command={(cmd) => {
+                  this.executeCommand(cmd);
+                }}
+              >
+                <el-button>
+                  {this.$t('btn.more')}
+                  <i class="el-icon-arrow-down el-icon--right"></i>
+                </el-button>
 
-              <el-dropdown-menu slot="dropdown">
-                {this.exportSelection ? (
-                  <el-dropdown-item
-                    command="DownloadSelected"
-                    disabled={!this.hasSelectedRow}
-                  >
-                    {this.$t('btn.exportSelection')}
-                  </el-dropdown-item>
-                ) : (
-                  ''
-                )}
-                {this.exportAll ? (
-                  <el-dropdown-item command="DownloadFromServer">
-                    {this.$t('btn.exportAll')}
-                  </el-dropdown-item>
-                ) : (
-                  ''
-                )}
-              </el-dropdown-menu>
-            </el-dropdown>
-          ) : (
-            ''
-          ),
-        ]
-      : '';
+                <el-dropdown-menu slot="dropdown">
+                  {this.exportSelection ? (
+                    <el-dropdown-item
+                      command="DownloadSelected"
+                      disabled={!this.hasSelectedRow}
+                    >
+                      {this.$t('btn.exportSelection')}
+                    </el-dropdown-item>
+                  ) : (
+                    ''
+                  )}
+                  {this.exportAll ? (
+                    <el-dropdown-item command="DownloadFromServer">
+                      {this.$t('btn.exportAll')}
+                    </el-dropdown-item>
+                  ) : (
+                    ''
+                  )}
+                </el-dropdown-menu>
+              </el-dropdown>
+            ) : (
+              ''
+            ),
+          ]
+        : '';
   }
   const toolbox = <div class={'grid-tool-box'}>{toolbar}</div>;
   return toolbox;
@@ -922,42 +920,21 @@ export default {
           ...this.model,
         };
       }
-      let requestUrl = this.$http.adornUrl(this.api);
-      switch (this.apiType) {
-        case 'auth':
-          requestUrl = this.$http.adornAuthUrl(this.api);
-          break;
-        case 'plat':
-          requestUrl = this.$http.adornPlatformUrl(this.api);
-          break;
-        case 'console':
-          requestUrl = this.$http.adornConsoleUrl(this.api);
-          break;
-        case 'scheduler':
-          requestUrl = this.$http.adornSchedulerUrl(this.api);
-          break;
-        case 'file':
-          requestUrl = this.$http.adornFileUrl(this.api);
-          break;
-        case 'itx':
-          requestUrl = this.$http.adornItxUrl(this.api);
-          break;
-        default:
-          requestUrl = this.api;
-          break;
-      }
+      let requestUrl = this.api;
       const requestParams = {
         url: requestUrl,
         method: this.methods,
       };
       if (this.methods === 'post') {
-        this.$set(requestParams, 'data', this.$http.adornData(params, true));
+        this.$set(requestParams, 'data', {
+          t: new Date().getTime(),
+          ...params,
+        });
       } else {
-        this.$set(
-          requestParams,
-          'params',
-          this.$http.adornParams(params, true)
-        );
+        this.$set(requestParams, 'params', {
+          t: new Date().getTime(),
+          ...params,
+        });
       }
       this.list = []; // 清空数据
       this.dataListLoading = true;
@@ -1154,42 +1131,21 @@ export default {
           ...this.model,
         };
       }
-      let requestUrl = this.$http.adornUrl(this.api);
-      switch (this.apiType) {
-        case 'auth':
-          requestUrl = this.$http.adornAuthUrl(this.api);
-          break;
-        case 'plat':
-          requestUrl = this.$http.adornPlatformUrl(this.api);
-          break;
-        case 'console':
-          requestUrl = this.$http.adornConsoleUrl(this.api);
-          break;
-        case 'scheduler':
-          requestUrl = this.$http.adornSchedulerUrl(this.api);
-          break;
-        case 'file':
-          requestUrl = this.$http.adornFileUrl(this.api);
-          break;
-        case 'itx':
-          requestUrl = this.$http.adornItxUrl(this.api);
-          break;
-        default:
-          requestUrl = this.api;
-          break;
-      }
+      let requestUrl = this.api;
       const requestParams = {
         url: requestUrl,
         method: this.methods,
       };
       if (this.methods === 'post') {
-        this.$set(requestParams, 'data', this.$http.adornData(params, true));
+        this.$set(requestParams, 'data', {
+          t: new Date().getTime(),
+          ...params,
+        });
       } else {
-        this.$set(
-          requestParams,
-          'params',
-          this.$http.adornParams(params, true)
-        );
+        this.$set(requestParams, 'params', {
+          t: new Date().getTime(),
+          ...params,
+        });
       }
       this.$http(requestParams)
         .then(({ data }) => {
