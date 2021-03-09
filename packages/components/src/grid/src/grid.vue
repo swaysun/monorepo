@@ -924,6 +924,7 @@ export default {
       const requestParams = {
         url: requestUrl,
         method: this.methods,
+        apiType: this.apiType,
       };
       if (this.methods === 'post') {
         this.$set(requestParams, 'data', {
@@ -1135,6 +1136,7 @@ export default {
       const requestParams = {
         url: requestUrl,
         method: this.methods,
+        apiType: this.apiType,
       };
       if (this.methods === 'post') {
         this.$set(requestParams, 'data', {
