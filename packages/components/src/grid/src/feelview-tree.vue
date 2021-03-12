@@ -63,23 +63,6 @@ export default {
         this.treeExpansionIdList.push(e.id);
       }
     },
-    getUserInfo() {
-      let userInfo = this.$store.state.common.userInfo;
-      if (JSON.stringify(userInfo) === '{}') {
-        this.$http({
-          url: this.$http.adornPlatformUrl('/sys/login/user'),
-          method: 'get',
-          params: this.$http.adornParams(),
-        }).then(({ data }) => {
-          if (data && data.code === 0) {
-            this.$store.commit('common/updateUserInfo', data.data);
-            this.getDeptList();
-          }
-        });
-      } else {
-        this.getDeptList();
-      }
-    },
     // 表格中树展开收缩
     unfoldAll() {
       this.treeExpansionIdList = [];
@@ -95,29 +78,6 @@ export default {
         this.$refs.tree.store.nodesMap[i].expanded = this.foldStatu;
       }
     },
-
-    getDeptList() {
-      let refreshStorage = this.$store.state.common.refreshStorage;
-      let userId = this.$store.state.common.userInfo.userId;
-      let localDept = this.$store.state.common.deptList;
-      if (localDept.tableData.length === 0 || refreshStorage) {
-        this.requestDept(userId);
-      } else {
-        this.tableData = localDept.tableData;
-        let requestTime = localDept.requestTime;
-        let requestTimeDiff = new Date().getTime() - requestTime;
-        if (requestTimeDiff > this.maxRequestTime) {
-          this.requestDept(userId);
-        } else {
-          if (this.tableData.length > 0) {
-            if (!this.treeExpansionIdList.includes(this.tableData[0].id)) {
-              this.treeExpansionIdList.push(this.tableData[0].id);
-            }
-          }
-          this.$emit('topDept', this.tableData[0]);
-        }
-      }
-    },
     requestDept(userId) {
       this.$http({
         url: this.$http.adornPlatformUrl('/sys/org/query/list'),
@@ -129,7 +89,6 @@ export default {
         // 这里等待后台支持请求带时间戳，判断数据有没变化再处理
         let data = Data.data;
         if (data && data.code === 0) {
-          this.$store.commit('common/updateRefreshStorage', false);
           this.processData(data?.data);
           this.tableData = data?.data || [];
           if (this.tableData.length > 0) {
@@ -137,11 +96,6 @@ export default {
               this.treeExpansionIdList.push(this.tableData[0].id);
             }
           }
-          let params = {
-            tableData: this.tableData,
-            requestTime: Data.config.params.t,
-          };
-          this.$store.commit('common/updateDeptList', params);
           this.$emit('topDept', this.tableData[0]);
         } else {
           this.tableData = [];
@@ -167,7 +121,7 @@ export default {
   },
 
   mounted() {
-    this.getUserInfo();
+    this.requestDept();
   },
   data() {
     return {
